@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+const MAX_STAMINA: float = 3.99
+const STAMINA_RATE: float = 0.2
+
 @export var move_speed: float = 200.0
 
 @export var jump_height: float
@@ -15,6 +18,7 @@ extends CharacterBody2D
 @export var feather: Node2D
 @export var feather_impact: float = 1.0
 
+var stamina: float = MAX_STAMINA
 var falling: bool = false
 
 var keyboard_input: bool = true
@@ -33,6 +37,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, 0.0, friction)
+		var ostam: float = stamina
+		stamina = MAX_STAMINA
+		if floor(ostam) < floor(stamina):
+			pass # stamina fill v effect
 	velocity.x = clampf(velocity.x, -move_speed, move_speed)
 
 
@@ -52,7 +60,10 @@ func feather_func_one() -> void:
 	var r2: Vector2 = feather.global_transform.x
 	var vel: float = abs(r1.angle_to(r2))
 	var pos: Vector2 = lerp(r1, r2, 0.5)
-	velocity -= vel * pos * feather_impact
+	if stamina < 0.0:
+		velocity -= vel * pos * feather_impact
+		stamina -= vel * STAMINA_RATE
+	# do feather effect
 
 
 func get_gravity() -> float:

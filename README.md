@@ -6,7 +6,7 @@
 
 - art
 -- player (limbs)
--- feather
+-- feather (4 stamina levels, fragment for particle emission)
 -- big boy
 -- platforms
 
