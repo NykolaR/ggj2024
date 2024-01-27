@@ -12,18 +12,29 @@ extends CharacterBody2D
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
+@export var feather: Node2D
+
+var falling: bool = false
+
 func _physics_process(delta):
+	if Input.is_action_just_released("jump") and not falling:
+		falling = true
 	velocity.y += get_gravity() * delta
 	velocity.x = get_input_velocity() * move_speed
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		falling = false
 		jump()
 	
 	move_and_slide()
 
 
 func get_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
+	if not falling:
+		falling = velocity.y > 0.0
+	if falling:
+		return fall_gravity
+	return jump_gravity
 
 
 func jump():
