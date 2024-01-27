@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 const MAX_STAMINA: float = 3.99
-const STAMINA_RATE: float = 0.2
+const STAMINA_RATE: float = 0.15
+const MAX_SPEED: float = 200.0
 
-@export var move_speed: float = 200.0
+@export var move_speed: float = 100.0
 
 @export var jump_height: float
 @export var jump_time_to_peak: float
@@ -14,6 +15,17 @@ const STAMINA_RATE: float = 0.2
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 @onready var fall_gravity: float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+
+@onready var feathers: Array[Node2D] = [
+	$Feather/F1,
+	$Feather/F2,
+	$Feather/F3,
+	$Feather/F4,
+	$Feather/F5
+]
+
+@onready var particles: GPUParticles2D = $Feather/GPUParticles2D as GPUParticles2D
+@onready var ftimer: Timer = $Timer as Timer
 
 @export var feather: Node2D
 @export var feather_impact: float = 1.0
@@ -41,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		stamina = MAX_STAMINA
 		if floor(ostam) < floor(stamina):
 			pass # stamina fill v effect
-	velocity.x = clampf(velocity.x, -move_speed, move_speed)
+	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 
 
 func _input(event: InputEvent) -> void:
@@ -60,10 +72,27 @@ func feather_func_one() -> void:
 	var r2: Vector2 = feather.global_transform.x
 	var vel: float = abs(r1.angle_to(r2))
 	var pos: Vector2 = lerp(r1, r2, 0.5)
-	if stamina < 0.0:
+	if stamina > 0.0:
 		velocity -= vel * pos * feather_impact
 		stamina -= vel * STAMINA_RATE
 	# do feather effect
+	
+	if vel > 0.02:
+		if stamina > 0 and ftimer.is_stopped():
+			ftimer.start()
+	else:
+		ftimer.stop()
+	
+	for feather in feathers:
+		feather.show()
+	if stamina < 3:
+		feathers[1].hide()
+	if stamina < 2:
+		feathers[2].hide()
+	if stamina < 1:
+		feathers[3].hide()
+	if stamina < 0:
+		feathers[4].hide()
 
 
 func get_gravity() -> float:
@@ -87,3 +116,9 @@ func get_input_velocity() -> float:
 		horizontal += 1.0
 	
 	return horizontal
+
+
+func _on_timer_timeout() -> void:
+	particles.emitting = true
+	await get_tree().create_timer(0.02).timeout
+	particles.emitting = false

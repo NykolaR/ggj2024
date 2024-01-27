@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b70f52minqjpu"]
+
+[ext_resource type="Shader" path="res://assets/shaders/wiggle.gdshader" id="1_briqp"]
+[ext_resource type="Script" path="res://scenes/vfx/wiggle.gd" id="1_ihplk"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oe0yy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f4r6f"]
+seamless = true
+noise = SubResource("FastNoiseLite_oe0yy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0eh5c"]
+shader = ExtResource("1_briqp")
+shader_parameter/strength = 5.0
+shader_parameter/uv_scaling = 1.0
+shader_parameter/movement_direction = Vector2(1, 0)
+shader_parameter/movement_speed = 0.0
+shader_parameter/offset = 0.0
+shader_parameter/NOISE_TEXTURE = SubResource("NoiseTexture2D_f4r6f")
+
+[node name="Wiggle" type="CanvasLayer"]
+script = ExtResource("1_ihplk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0eh5c")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
