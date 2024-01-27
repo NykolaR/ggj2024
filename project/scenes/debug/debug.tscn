@@ -12,6 +12,7 @@ size = Vector2(303, 41)
 
 [node name="Player" parent="." instance=ExtResource("1_x8qs7")]
 position = Vector2(598, 310)
+feather_impact = 100.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(600, 300)
