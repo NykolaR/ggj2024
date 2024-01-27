@@ -27,6 +27,8 @@ const MAX_SPEED: float = 200.0
 @onready var particles: GPUParticles2D = $Feather/GPUParticles2D as GPUParticles2D
 @onready var ftimer: Timer = $Timer as Timer
 
+@onready var visual: Node2D = $Node2D as Node2D
+
 @export var feather: Node2D
 @export var feather_impact: float = 1.0
 
@@ -105,6 +107,11 @@ func get_gravity() -> float:
 
 func jump() -> void:
 	velocity.y = jump_velocity
+	var tween: Tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_BACK)
+	visual.scale.x = 0.075
+	tween.tween_property(visual, "scale:x", 0.085, 1.0)
 
 
 func get_input_velocity() -> float:
