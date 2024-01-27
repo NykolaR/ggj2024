@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
 @export var feather: Node2D
+@export var feather_impact: float = 1.0
 
 var falling: bool = false
 
@@ -26,7 +27,17 @@ func _physics_process(delta):
 		falling = false
 		jump()
 	
+	feather_func_one()
 	move_and_slide()
+
+
+func feather_func_one() -> void:
+	var r1: Vector2 = feather.transform.x
+	feather.look_at(get_global_mouse_position())
+	var r2: Vector2 = feather.transform.x
+	var vel: float = r1.angle_to(r2)
+	
+	velocity += vel * (lerp(r1, r2, 0.5)) * feather_impact
 
 
 func get_gravity() -> float:
