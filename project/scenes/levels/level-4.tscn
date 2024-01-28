@@ -532,6 +532,29 @@ modulate = Color(1, 0.945098, 0.909804, 1)
 [node name="Lower" parent="tile4-6/GroundR" index="1"]
 modulate = Color(0.760784, 0.764706, 0.780392, 1)
 
+[node name="tile4-7" type="StaticBody2D" parent="."]
+position = Vector2(4253, -366)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundL" parent="tile4-7" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-7/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-7/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-7" instance=ExtResource("5_q867o")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-7/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-7/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
 [node name="Background-temp" parent="." instance=ExtResource("6_4u8dl")]
 modulate = Color(0.760784, 0.764706, 0.780392, 1)
 metadata/_edit_lock_ = true
@@ -590,3 +613,5 @@ focus = NodePath("../Player")
 [editable path="tile4-9/GroundR"]
 [editable path="tile4-6/GroundL"]
 [editable path="tile4-6/GroundR"]
+[editable path="tile4-7/GroundL"]
+[editable path="tile4-7/GroundR"]
