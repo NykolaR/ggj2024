@@ -47,6 +47,7 @@ jump_height = 100.0
 jump_time_to_peak = 0.5
 jump_time_to_descent = 0.4
 feather = NodePath("Feather")
+feather_impact = Vector2(10000, 500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yacov")
