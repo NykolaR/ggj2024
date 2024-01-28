@@ -4,7 +4,8 @@ extends Node
 const LEVELS: Array[PackedScene] = [
 	preload("res://scenes/levels/level-1.tscn"),
 	preload("res://scenes/levels/level-2.tscn"),
-	preload("res://scenes/levels/level-3.tscn")
+	preload("res://scenes/levels/level-3.tscn"),
+	preload("res://scenes/levels/level-4.tscn")
 ]
 
 var current_level: int = 0
@@ -17,6 +18,7 @@ func _ready() -> void:
 
 
 func level_completed() -> void:
+	Sounds.play()
 	current_level = wrapi(current_level + 1, 0, LEVELS.size())
 	load_current_level()
 
