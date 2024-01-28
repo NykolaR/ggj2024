@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cu8434c7ica0o"]
+[gd_scene load_steps=21 format=3 uid="uid://cu8434c7ica0o"]
 
 [ext_resource type="Texture2D" uid="uid://bbj7nb0krcdlt" path="res://assets/textures/body.png" id="1_mnc4t"]
 [ext_resource type="Script" path="res://scenes/creature/creature_visual.gd" id="1_v76tm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cn25cx3svt3hd" path="res://assets/textures/jump-2.png" id="5_s0rwr"]
 [ext_resource type="Texture2D" uid="uid://dbdimo8dm6wvq" path="res://assets/textures/run-4.png" id="6_pkjc8"]
 [ext_resource type="Texture2D" uid="uid://bbhtslhg4y7dj" path="res://assets/textures/jump-3.png" id="6_rr0jv"]
+[ext_resource type="Texture2D" uid="uid://dunwcgo17vmof" path="res://assets/textures/mouth-mask.png" id="7_0iasp"]
 [ext_resource type="Texture2D" uid="uid://vuyhjvrgchjl" path="res://assets/textures/run-5.png" id="7_w1cub"]
 [ext_resource type="Texture2D" uid="uid://dqtiheh2f6rvj" path="res://assets/textures/run-6.png" id="8_v2hdm"]
 
@@ -271,7 +272,6 @@ script = ExtResource("1_v76tm")
 libraries = {
 "": SubResource("AnimationLibrary_jquie")
 }
-speed_scale = 4.0
 next/laugh = &"mouth_close"
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -293,6 +293,12 @@ scale = Vector2(1, 0.5)
 [node name="MouthVisual" type="Sprite2D" parent="Node2D/Body/Node2D"]
 position = Vector2(0, 229.74)
 texture = ExtResource("2_yh07r")
+
+[node name="MouthMask" type="Sprite2D" parent="Node2D/Body/Node2D"]
+visible = false
+z_index = 2
+position = Vector2(0, 229.74)
+texture = ExtResource("7_0iasp")
 
 [node name="Feet" type="AnimatedSprite2D" parent="Node2D"]
 visible = false
