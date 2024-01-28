@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://b30chkk0cmpth"]
+
+[ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="1_4a0mu"]
+[ext_resource type="PackedScene" uid="uid://c6e204v0wvp86" path="res://scenes/environment/ground/ground_c.tscn" id="2_nijel"]
+[ext_resource type="PackedScene" uid="uid://idvwydji7wq3" path="res://scenes/environment/ground/ground_l.tscn" id="3_f85t1"]
+[ext_resource type="PackedScene" uid="uid://bi5qi4l2goyxc" path="res://scenes/environment/ground/ground_r.tscn" id="4_cllc4"]
+[ext_resource type="PackedScene" uid="uid://dssdkn314rse6" path="res://scenes/environment/background/background.tscn" id="5_u3uj0"]
+
+[node name="debug-2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4a0mu")]
+position = Vector2(684, 276)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(672, 460)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="StaticBody2D" instance=ExtResource("2_nijel")]
+position = Vector2(53, -30)
+
+[node name="GroundL" parent="StaticBody2D" instance=ExtResource("3_f85t1")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="StaticBody2D" instance=ExtResource("4_cllc4")]
+position = Vector2(1131, -50)
+
+[node name="StaticBody2D40" type="StaticBody2D" parent="."]
+position = Vector2(984, 558)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="StaticBody2D40" instance=ExtResource("2_nijel")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="StaticBody2D40" instance=ExtResource("2_nijel")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="StaticBody2D40" instance=ExtResource("2_nijel")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="StaticBody2D40" instance=ExtResource("2_nijel")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="StaticBody2D40" instance=ExtResource("3_f85t1")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="StaticBody2D40" instance=ExtResource("4_cllc4")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="StaticBody2D41" type="StaticBody2D" parent="."]
+position = Vector2(2018, 558)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="StaticBody2D41" instance=ExtResource("2_nijel")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="StaticBody2D41" instance=ExtResource("2_nijel")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="StaticBody2D41" instance=ExtResource("2_nijel")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="StaticBody2D41" instance=ExtResource("2_nijel")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="StaticBody2D41" instance=ExtResource("3_f85t1")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="StaticBody2D41" instance=ExtResource("4_cllc4")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="StaticBody2D42" type="StaticBody2D" parent="."]
+position = Vector2(2606, 618)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="StaticBody2D42" instance=ExtResource("2_nijel")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="StaticBody2D42" instance=ExtResource("2_nijel")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="StaticBody2D42" instance=ExtResource("2_nijel")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="StaticBody2D42" instance=ExtResource("2_nijel")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="StaticBody2D42" instance=ExtResource("3_f85t1")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="StaticBody2D42" instance=ExtResource("4_cllc4")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="Node2D" parent="." instance=ExtResource("5_u3uj0")]
