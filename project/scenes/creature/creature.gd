@@ -17,3 +17,7 @@ func tickle_increase(amount: float) -> void:
 	if tickle_tension > 1:
 		tickled = true
 		visual.laugh()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	get_tree().call_group("GameCam", "creature_enter")

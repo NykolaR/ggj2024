@@ -277,17 +277,15 @@ next/laugh = &"mouth_close"
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Body" type="Sprite2D" parent="Node2D"]
-self_modulate = Color(0.541176, 0.729412, 0.890196, 1)
 texture = ExtResource("1_mnc4t")
 
 [node name="Feet2" type="AnimatedSprite2D" parent="Node2D/Body"]
-modulate = Color(0.329412, 0.396078, 0.568627, 1)
+modulate = Color(0.729412, 0.729412, 0.729412, 1)
 position = Vector2(0, 206)
 sprite_frames = SubResource("SpriteFrames_c8nub")
 
 [node name="Node2D" type="Node2D" parent="Node2D/Body"]
 visible = false
-modulate = Color(0.541176, 0.729412, 0.890196, 1)
 position = Vector2(0, -232.285)
 rotation = 0.0872665
 scale = Vector2(1, 0.5)
@@ -298,7 +296,7 @@ texture = ExtResource("2_yh07r")
 
 [node name="Feet" type="AnimatedSprite2D" parent="Node2D"]
 visible = false
-modulate = Color(0.329412, 0.396078, 0.568627, 1)
+modulate = Color(0.729412, 0.729412, 0.729412, 1)
 sprite_frames = SubResource("SpriteFrames_p1pyu")
 animation = &"new_animation"
 autoplay = "new_animation"

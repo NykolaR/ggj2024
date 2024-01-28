@@ -110,8 +110,6 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_lvhjk")
 texture = ExtResource("3_gkvte")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
@@ -124,4 +122,7 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eaten"]
 shape = SubResource("CircleShape2D_uo5iw")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

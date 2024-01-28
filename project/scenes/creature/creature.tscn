@@ -38,4 +38,10 @@ monitoring = false
 position = Vector2(97.47, 224.265)
 shape = SubResource("CircleShape2D_4dmgy")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 30)
+scale = Vector2(48.3, 56.3)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+
 [editable path="CreatureVisual"]

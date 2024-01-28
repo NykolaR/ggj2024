@@ -34,6 +34,8 @@ const MAX_SPEED: float = 400.0
 @export var feather: Area2D
 @export var feather_impact: Vector2 = Vector2(5000, 500)
 
+signal player_died
+
 var eaten: bool = false
 
 var n_vel: Vector2 = Vector2()
@@ -155,3 +157,7 @@ func _on_timer_timeout() -> void:
 	particles.emitting = true
 	await get_tree().create_timer(0.02).timeout
 	particles.emitting = false
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	player_died.emit()
