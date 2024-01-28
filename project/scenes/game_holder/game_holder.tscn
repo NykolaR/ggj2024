@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/game_holder/game_holder.gd" id="1_31vw3"]
 
-[node name="GameHolder" type="Node"]
+[node name="GameHolder" type="Node" groups=["GameHolder"]]
 script = ExtResource("1_31vw3")

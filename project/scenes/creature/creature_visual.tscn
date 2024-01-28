@@ -296,7 +296,7 @@ texture = ExtResource("2_yh07r")
 
 [node name="MouthMask" type="Sprite2D" parent="Node2D/Body/Node2D"]
 visible = false
-z_index = 2
+z_index = 1
 position = Vector2(0, 229.74)
 texture = ExtResource("7_0iasp")
 

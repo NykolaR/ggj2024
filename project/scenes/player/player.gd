@@ -75,7 +75,9 @@ func _physics_process(delta: float) -> void:
 			stamina = MAX_STAMINA
 			if floor(ostam) < floor(stamina):
 				pass # stamina fill v effect
-		
+	else:
+		move_and_slide()
+	
 	visual.set_velocity(velocity, is_on_floor())
 	
 	if not eaten and velocity.y > 0:
@@ -83,9 +85,11 @@ func _physics_process(delta: float) -> void:
 		if eatens.size() > 0:
 			eaten = true
 			player_eaten.emit()
-			var body: CreatureVisual = eatens.front().get_parent().get_parent().get_parent().get_parent()
+			var body: CreatureVisual = eatens.front().get_parent().get_parent().get_parent()
 			if is_instance_valid(body) and body.has_method("mouth_mask"):
 				body.mouth_mask()
+				Fader.level_complete()
+				get_tree().create_timer(0.3).timeout.connect(queue_free)
 
 
 func _input(event: InputEvent) -> void:
@@ -173,3 +177,5 @@ func _on_timer_timeout() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	player_died.emit()
+	get_tree().call_group("GameHolder", "restart_level")
+	queue_free()

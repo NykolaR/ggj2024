@@ -21,3 +21,15 @@ func tickle_increase(amount: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	get_tree().call_group("GameCam", "creature_enter")
+
+
+func mouth_mask() -> void:
+	pass
+
+
+func _on_creature_visual_mouth_opened() -> void:
+	$CreatureVisual/Node2D/Body/Mouth.monitorable = true
+
+
+func _on_creature_visual_mouth_closed() -> void:
+	$CreatureVisual/Node2D/Body/Mouth.monitorable = false

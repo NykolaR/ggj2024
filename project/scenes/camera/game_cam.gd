@@ -8,7 +8,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	global_position.x = max(0, focus.global_position.x)
+	if is_instance_valid(focus):
+		global_position.x = max(0, focus.global_position.x)
 
 
 func creature_enter() -> void:

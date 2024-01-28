@@ -42,6 +42,8 @@ shape = SubResource("CircleShape2D_4dmgy")
 position = Vector2(0, 30)
 scale = Vector2(48.3, 56.3)
 
+[connection signal="mouth_closed" from="CreatureVisual" to="." method="_on_creature_visual_mouth_closed"]
+[connection signal="mouth_opened" from="CreatureVisual" to="." method="_on_creature_visual_mouth_opened"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 
 [editable path="CreatureVisual"]
