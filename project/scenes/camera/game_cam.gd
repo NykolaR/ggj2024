@@ -17,4 +17,9 @@ func creature_enter() -> void:
 		return
 	unzoomed = true
 	$AnimationPlayer.play("zoom_out")
-	
+
+
+func super_zoom() -> void:
+	pass
+	#var tween: Tween = create_tween()
+	#tween.tween_property($Camera2D, "zoom", Vector2(0.1, 0.1), 5.0)

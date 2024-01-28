@@ -29,6 +29,7 @@ func load_current_level() -> void:
 	await Fader.fade_completed
 	for child in get_children():
 		child.queue_free()
+	await get_tree().create_timer(0.1).timeout
 	var scene: Node = LEVELS[current_level].instantiate()
 	add_child(scene)
 	Fader.fade_transparent()
