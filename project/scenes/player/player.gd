@@ -33,6 +33,8 @@ const MAX_SPEED: float = 400.0
 
 @onready var eaten_area: Area2D = $Eaten as Area2D
 
+@onready var jump_sound: AudioStreamPlayer2D = $Jump as AudioStreamPlayer2D
+
 @export var feather: Area2D
 @export var feather_impact: Vector2 = Vector2(10000, 500)
 
@@ -63,6 +65,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			falling = false
 			jump()
+			jump_sound.play()
 		
 		feather_func_one()
 		velocity += f_vel
@@ -83,6 +86,7 @@ func _physics_process(delta: float) -> void:
 	if not eaten and velocity.y > 0:
 		var eatens: Array = eaten_area.get_overlapping_areas()
 		if eatens.size() > 0:
+			Sounds.ate()
 			eaten = true
 			player_eaten.emit()
 			var body: CreatureVisual = eatens.front().get_parent().get_parent().get_parent()
@@ -177,6 +181,8 @@ func _on_timer_timeout() -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	if global_position.y < 50:
+		return
 	player_died.emit()
 	get_tree().call_group("GameHolder", "restart_level")
 	queue_free()

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqg1r2whnx0o1"]
+
+[ext_resource type="Script" path="res://scenes/autoload/sounds.gd" id="1_7ldvu"]
+[ext_resource type="AudioStream" uid="uid://dvydtxxll5dqi" path="res://assets/audio/play.wav" id="1_l00r0"]
+[ext_resource type="AudioStream" uid="uid://c6fsuw24eopqm" path="res://assets/audio/eaten.wav" id="3_ogina"]
+
+[node name="Sounds" type="Node"]
+script = ExtResource("1_7ldvu")
+
+[node name="Play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_l00r0")
+
+[node name="Ate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ogina")

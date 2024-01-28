@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://cu8434c7ica0o"]
+[gd_scene load_steps=23 format=3 uid="uid://cu8434c7ica0o"]
 
 [ext_resource type="Texture2D" uid="uid://bbj7nb0krcdlt" path="res://assets/textures/body.png" id="1_mnc4t"]
 [ext_resource type="Script" path="res://scenes/creature/creature_visual.gd" id="1_v76tm"]
+[ext_resource type="AudioStream" uid="uid://bpy2dwy2rqrqo" path="res://assets/audio/step.wav" id="2_bqb03"]
 [ext_resource type="Texture2D" uid="uid://cw4lac4vof6ev" path="res://assets/textures/mouth.png" id="2_yh07r"]
+[ext_resource type="AudioStream" uid="uid://dj05uiukinj34" path="res://assets/audio/laugh.wav" id="3_6pasl"]
 [ext_resource type="Texture2D" uid="uid://bpx8mcmxcdrr5" path="res://assets/textures/run-1.png" id="3_sacq5"]
 [ext_resource type="Texture2D" uid="uid://cckof01ljgdjy" path="res://assets/textures/jump-1.png" id="4_foj4j"]
 [ext_resource type="Texture2D" uid="uid://cke44v2aafnqt" path="res://assets/textures/run-2.png" id="4_y5rc5"]
@@ -92,6 +94,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 40)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Step")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_bqb03")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_bqb03")
+}],
+"times": PackedFloat32Array(0.2, 0.7)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_u8wr8"]
 resource_name = "laugh"
@@ -144,6 +165,33 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Laugh")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.34,
+"start_offset": 0.0,
+"stream": ExtResource("3_6pasl")
+}, {
+"end_offset": 0.34,
+"start_offset": 0.0,
+"stream": ExtResource("3_6pasl")
+}, {
+"end_offset": 0.34,
+"start_offset": 0.0,
+"stream": ExtResource("3_6pasl")
+}, {
+"end_offset": 0.34,
+"start_offset": 0.0,
+"stream": ExtResource("3_6pasl")
+}],
+"times": PackedFloat32Array(0.2, 1.2, 2.2, 3.2)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_361v0"]
 resource_name = "mouth_close"
@@ -306,3 +354,9 @@ modulate = Color(0.729412, 0.729412, 0.729412, 1)
 sprite_frames = SubResource("SpriteFrames_p1pyu")
 animation = &"new_animation"
 autoplay = "new_animation"
+
+[node name="Step" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 500)
+
+[node name="Laugh" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -150)

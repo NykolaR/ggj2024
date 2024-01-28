@@ -13,6 +13,7 @@ var current_level: int = 0
 func _ready() -> void:
 	var scene: Node = LEVELS[current_level].instantiate()
 	add_child(scene)
+	Fader.fade_transparent()
 
 
 func level_completed() -> void:

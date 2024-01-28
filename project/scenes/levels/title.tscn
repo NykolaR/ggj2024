@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://1t8q1wa2oj8m"]
+[gd_scene load_steps=9 format=3 uid="uid://1t8q1wa2oj8m"]
 
 [ext_resource type="PackedScene" uid="uid://dssdkn314rse6" path="res://scenes/environment/background/background-day.tscn" id="1_iidjq"]
+[ext_resource type="Script" path="res://scenes/levels/title.gd" id="1_jhax3"]
 [ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="2_ogd1g"]
 [ext_resource type="FontFile" uid="uid://hrcl4iuplyg8" path="res://assets/fonts/Gaegu-Bold.ttf" id="3_ptx5m"]
 
@@ -10,7 +11,45 @@ font_size = 150
 outline_size = 18
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_y1hi6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jq0hh"]
+resource_name = "boing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.594604, 2.07053),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.075, 1.075)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_186ul"]
+_data = {
+"RESET": SubResource("Animation_y1hi6"),
+"boing": SubResource("Animation_jq0hh")
+}
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_jhax3")
 
 [node name="background-day" parent="." instance=ExtResource("1_iidjq")]
 
@@ -22,8 +61,15 @@ scale = Vector2(-1, 1)
 [node name="Label" type="Label" parent="."]
 offset_left = 156.0
 offset_top = 174.0
-offset_right = 1076.0
+offset_right = 713.0
 offset_bottom = 477.0
+pivot_offset = Vector2(278, 151)
 text = "Make me 
    Food"
 label_settings = SubResource("LabelSettings_8iiyf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_186ul")
+}
+autoplay = "boing"

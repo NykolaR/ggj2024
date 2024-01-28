@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="project"
-run/main_scene="res://scenes/game_holder/game_holder.tscn"
+run/main_scene="res://scenes/levels/title.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Fader="*res://scenes/autoload/fader.tscn"
 Wiggle="*res://scenes/vfx/wiggle.tscn"
+Sounds="*res://scenes/autoload/sounds.tscn"
 
 [display]
 
