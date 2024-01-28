@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b30chkk0cmpth"]
+[gd_scene load_steps=7 format=3 uid="uid://b30chkk0cmpth"]
 
 [ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="1_4a0mu"]
 [ext_resource type="PackedScene" uid="uid://c6e204v0wvp86" path="res://scenes/environment/ground/ground_c.tscn" id="2_nijel"]
 [ext_resource type="PackedScene" uid="uid://idvwydji7wq3" path="res://scenes/environment/ground/ground_l.tscn" id="3_f85t1"]
 [ext_resource type="PackedScene" uid="uid://bi5qi4l2goyxc" path="res://scenes/environment/ground/ground_r.tscn" id="4_cllc4"]
 [ext_resource type="PackedScene" uid="uid://dssdkn314rse6" path="res://scenes/environment/background/background.tscn" id="5_u3uj0"]
+[ext_resource type="PackedScene" uid="uid://b70f52minqjpu" path="res://scenes/vfx/wiggle.tscn" id="6_x0t2y"]
 
 [node name="debug-2" type="Node2D"]
 
@@ -95,3 +96,5 @@ position = Vector2(-1025.01, -25.0003)
 position = Vector2(4262.54, -12.4996)
 
 [node name="Node2D" parent="." instance=ExtResource("5_u3uj0")]
+
+[node name="Wiggle" parent="." instance=ExtResource("6_x0t2y")]
