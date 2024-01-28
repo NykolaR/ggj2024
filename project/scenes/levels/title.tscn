@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://1t8q1wa2oj8m"]
+
+[ext_resource type="PackedScene" uid="uid://dssdkn314rse6" path="res://scenes/environment/background/background-day.tscn" id="1_iidjq"]
+[ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="2_ogd1g"]
+[ext_resource type="FontFile" uid="uid://hrcl4iuplyg8" path="res://assets/fonts/Gaegu-Bold.ttf" id="3_ptx5m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8iiyf"]
+font = ExtResource("3_ptx5m")
+font_size = 150
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="background-day" parent="." instance=ExtResource("1_iidjq")]
+
+[node name="Creature" parent="." instance=ExtResource("2_ogd1g")]
+modulate = Color(1, 0, 0.301961, 1)
+position = Vector2(965, 511)
+scale = Vector2(-1, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 156.0
+offset_top = 174.0
+offset_right = 1076.0
+offset_bottom = 477.0
+text = "Make me 
+   Food"
+label_settings = SubResource("LabelSettings_8iiyf")
