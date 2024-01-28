@@ -100,7 +100,6 @@ script = ExtResource("1_v76tm")
 libraries = {
 "": SubResource("AnimationLibrary_jquie")
 }
-autoplay = "bob"
 speed_scale = 4.0
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -123,3 +122,4 @@ visible = false
 modulate = Color(0.329412, 0.396078, 0.568627, 1)
 sprite_frames = SubResource("SpriteFrames_p1pyu")
 animation = &"new_animation"
+autoplay = "new_animation"

@@ -27,7 +27,7 @@ const MAX_SPEED: float = 200.0
 @onready var particles: GPUParticles2D = $Feather/GPUParticles2D as GPUParticles2D
 @onready var ftimer: Timer = $Timer as Timer
 
-@onready var visual: Node2D = $Node2D as Node2D
+@onready var visual: CreatureVisual = $CreatureVisual as CreatureVisual
 
 @export var feather: Area2D
 @export var feather_impact: float = 1.0
@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 		if floor(ostam) < floor(stamina):
 			pass # stamina fill v effect
 	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
+	visual.set_velocity(velocity, is_on_floor())
 
 
 func _input(event: InputEvent) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://fgiu5hpshv74"]
+[gd_scene load_steps=14 format=3 uid="uid://fgiu5hpshv74"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_eirax"]
 [ext_resource type="Texture2D" uid="uid://bh5dnnrqfcm22" path="res://assets/textures/feather-1.png" id="2_l2wbn"]
@@ -7,86 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bem5be03se0ar" path="res://assets/textures/feather-3.png" id="4_bb1gg"]
 [ext_resource type="Texture2D" uid="uid://dcdrfwjjkwm1w" path="res://assets/textures/feather-4.png" id="5_jaysi"]
 [ext_resource type="Texture2D" uid="uid://dhqerfxgisxrt" path="res://assets/textures/feather-5.png" id="6_ueepa"]
-[ext_resource type="Texture2D" uid="uid://bbj7nb0krcdlt" path="res://assets/textures/body.png" id="8_cttlf"]
-[ext_resource type="Texture2D" uid="uid://cw4lac4vof6ev" path="res://assets/textures/mouth.png" id="9_eddjb"]
-[ext_resource type="Texture2D" uid="uid://bpx8mcmxcdrr5" path="res://assets/textures/run-1.png" id="10_yepxi"]
-[ext_resource type="Texture2D" uid="uid://cke44v2aafnqt" path="res://assets/textures/run-2.png" id="11_s42wd"]
-[ext_resource type="Texture2D" uid="uid://cbp84udow27e4" path="res://assets/textures/run-3.png" id="12_fwv6g"]
-[ext_resource type="Texture2D" uid="uid://dbdimo8dm6wvq" path="res://assets/textures/run-4.png" id="13_8mt75"]
-[ext_resource type="Texture2D" uid="uid://vuyhjvrgchjl" path="res://assets/textures/run-5.png" id="14_ouxux"]
-[ext_resource type="Texture2D" uid="uid://dqtiheh2f6rvj" path="res://assets/textures/run-6.png" id="15_2jdne"]
+[ext_resource type="PackedScene" uid="uid://cu8434c7ica0o" path="res://scenes/creature/creature_visual.tscn" id="11_b677o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yacov"]
 radius = 38.0526
-
-[sub_resource type="Animation" id="Animation_riag4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Body:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_oob1w"]
-resource_name = "bob"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Body:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 40)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jquie"]
-_data = {
-"RESET": SubResource("Animation_riag4"),
-"bob": SubResource("Animation_oob1w")
-}
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dn038"]
-radius = 70.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_j5omd"]
-radius = 186.5
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qvapp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_yepxi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_s42wd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_fwv6g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_8mt75")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_ouxux")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_2jdne")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 10.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cyon"]
 size = Vector2(80, 20)
@@ -132,49 +56,8 @@ visible = false
 scale = Vector2(0.23, 0.23)
 texture = ExtResource("2_m3myx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_jquie")
-}
-autoplay = "bob"
-speed_scale = 4.0
-
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CreatureVisual" parent="." instance=ExtResource("11_b677o")]
 scale = Vector2(0.085, 0.085)
-
-[node name="Body" type="Sprite2D" parent="Node2D"]
-modulate = Color(0.541176, 0.729412, 0.890196, 1)
-texture = ExtResource("8_cttlf")
-
-[node name="Mouth" type="Area2D" parent="Node2D/Body"]
-position = Vector2(0, -175)
-collision_layer = 32
-collision_mask = 0
-input_pickable = false
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Body/Mouth"]
-visible = false
-shape = SubResource("CircleShape2D_dn038")
-
-[node name="TickleTown" type="Area2D" parent="Node2D/Body"]
-position = Vector2(0, -35.5)
-collision_layer = 8
-collision_mask = 0
-input_pickable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Body/TickleTown"]
-position = Vector2(97.47, 224.265)
-shape = SubResource("CircleShape2D_j5omd")
-
-[node name="MouthVisual" type="Sprite2D" parent="Node2D/Body"]
-visible = false
-texture = ExtResource("9_eddjb")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
-modulate = Color(0.329412, 0.396078, 0.568627, 1)
-sprite_frames = SubResource("SpriteFrames_qvapp")
-animation = &"new_animation"
 
 [node name="Feather" type="Area2D" parent="."]
 collision_layer = 4
