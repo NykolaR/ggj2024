@@ -1,0 +1,198 @@
+[gd_scene load_steps=7 format=3 uid="uid://bq7nnsdyy7m3q"]
+
+[ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="1_j5xf3"]
+[ext_resource type="PackedScene" uid="uid://c6e204v0wvp86" path="res://scenes/environment/ground/ground_c.tscn" id="2_4mw3t"]
+[ext_resource type="PackedScene" uid="uid://idvwydji7wq3" path="res://scenes/environment/ground/ground_l.tscn" id="3_wd62q"]
+[ext_resource type="PackedScene" uid="uid://bi5qi4l2goyxc" path="res://scenes/environment/ground/ground_r.tscn" id="4_r0y7s"]
+[ext_resource type="PackedScene" uid="uid://dssdkn314rse6" path="res://scenes/environment/background/background-day.tscn" id="5_mhdfi"]
+[ext_resource type="PackedScene" uid="uid://b70f52minqjpu" path="res://scenes/vfx/wiggle.tscn" id="6_co3u4"]
+
+[node name="Level-1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_j5xf3")]
+position = Vector2(684, 276)
+feather_impact = Vector2(10000, 500)
+
+[node name="tile3" type="StaticBody2D" parent="."]
+position = Vector2(672, 460)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile3" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundL" parent="tile3" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile3" instance=ExtResource("4_r0y7s")]
+position = Vector2(1131, -50)
+
+[node name="tile5" type="StaticBody2D" parent="."]
+position = Vector2(1616, 434)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile5" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundL" parent="tile5" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile5" instance=ExtResource("4_r0y7s")]
+position = Vector2(1131, -50)
+
+[node name="tile6" type="StaticBody2D" parent="."]
+position = Vector2(3163, 407)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile6" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundL" parent="tile6" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile6" instance=ExtResource("4_r0y7s")]
+position = Vector2(1131, -50)
+
+[node name="tile4" type="StaticBody2D" parent="."]
+position = Vector2(984, 558)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="tile4" instance=ExtResource("2_4mw3t")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="tile4" instance=ExtResource("2_4mw3t")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="tile4" instance=ExtResource("2_4mw3t")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="tile4" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile4" instance=ExtResource("4_r0y7s")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="tile4-1" type="StaticBody2D" parent="."]
+position = Vector2(2018, 558)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-1" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="tile4-1" instance=ExtResource("2_4mw3t")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="tile4-1" instance=ExtResource("2_4mw3t")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="tile4-1" instance=ExtResource("2_4mw3t")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="tile4-1" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile4-1" instance=ExtResource("4_r0y7s")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="tile4-2" type="StaticBody2D" parent="."]
+position = Vector2(2606, 618)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-2" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="tile4-2" instance=ExtResource("2_4mw3t")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="tile4-2" instance=ExtResource("2_4mw3t")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="tile4-2" instance=ExtResource("2_4mw3t")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="tile4-2" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile4-2" instance=ExtResource("4_r0y7s")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="tile4-3" type="StaticBody2D" parent="."]
+position = Vector2(4173, 645)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-3" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="tile4-3" instance=ExtResource("2_4mw3t")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="tile4-3" instance=ExtResource("2_4mw3t")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="tile4-3" instance=ExtResource("2_4mw3t")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="tile4-3" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile4-3" instance=ExtResource("4_r0y7s")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="tile4-4" type="StaticBody2D" parent="."]
+position = Vector2(4913, 645)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-4" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="tile4-4" instance=ExtResource("2_4mw3t")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="tile4-4" instance=ExtResource("2_4mw3t")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="tile4-4" instance=ExtResource("2_4mw3t")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="tile4-4" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile4-4" instance=ExtResource("4_r0y7s")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="tile4-5" type="StaticBody2D" parent="."]
+position = Vector2(5929, 645)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-5" instance=ExtResource("2_4mw3t")]
+position = Vector2(53, -30)
+
+[node name="GroundC2" parent="tile4-5" instance=ExtResource("2_4mw3t")]
+position = Vector2(1137.51, -30)
+
+[node name="GroundC3" parent="tile4-5" instance=ExtResource("2_4mw3t")]
+position = Vector2(2162.52, -30)
+
+[node name="GroundC4" parent="tile4-5" instance=ExtResource("2_4mw3t")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="GroundL" parent="tile4-5" instance=ExtResource("3_wd62q")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="GroundR" parent="tile4-5" instance=ExtResource("4_r0y7s")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="Node2D" parent="." instance=ExtResource("5_mhdfi")]
+
+[node name="Wiggle" parent="." instance=ExtResource("6_co3u4")]
