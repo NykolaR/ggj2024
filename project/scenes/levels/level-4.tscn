@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwh1ga1ppfwnp"]
+[gd_scene load_steps=8 format=3 uid="uid://1v3iseltfn4u"]
 
 [ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="1_nt118"]
 [ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="2_vmrmj"]
 [ext_resource type="PackedScene" uid="uid://c6e204v0wvp86" path="res://scenes/environment/ground/ground_c.tscn" id="3_tluqq"]
 [ext_resource type="PackedScene" uid="uid://idvwydji7wq3" path="res://scenes/environment/ground/ground_l.tscn" id="4_54tbt"]
 [ext_resource type="PackedScene" uid="uid://bi5qi4l2goyxc" path="res://scenes/environment/ground/ground_r.tscn" id="5_q867o"]
-[ext_resource type="PackedScene" path="res://scenes/environment/background/background-gb.tscn" id="6_4u8dl"]
+[ext_resource type="PackedScene" uid="uid://buqph6wtfse1t" path="res://scenes/environment/background/background-gb.tscn" id="6_4u8dl"]
 [ext_resource type="PackedScene" uid="uid://df8ppdv2bdypg" path="res://scenes/camera/game_cam.tscn" id="7_e1ofj"]
 
 [node name="Level-3" type="Node2D"]
@@ -532,29 +532,6 @@ modulate = Color(1, 0.945098, 0.909804, 1)
 [node name="Lower" parent="tile4-6/GroundR" index="1"]
 modulate = Color(0.760784, 0.764706, 0.780392, 1)
 
-[node name="tile4-7" type="StaticBody2D" parent="."]
-position = Vector2(4253, -366)
-scale = Vector2(0.0799992, 0.0799992)
-metadata/_edit_group_ = true
-
-[node name="GroundL" parent="tile4-7" instance=ExtResource("4_54tbt")]
-position = Vector2(-1025.01, -25.0003)
-
-[node name="Upper" parent="tile4-7/GroundL" index="0"]
-modulate = Color(1, 0.945098, 0.909804, 1)
-
-[node name="Lower" parent="tile4-7/GroundL" index="1"]
-modulate = Color(0.760784, 0.764706, 0.780392, 1)
-
-[node name="GroundR" parent="tile4-7" instance=ExtResource("5_q867o")]
-position = Vector2(75.0015, -12.4996)
-
-[node name="Upper" parent="tile4-7/GroundR" index="0"]
-modulate = Color(1, 0.945098, 0.909804, 1)
-
-[node name="Lower" parent="tile4-7/GroundR" index="1"]
-modulate = Color(0.760784, 0.764706, 0.780392, 1)
-
 [node name="Background-temp" parent="." instance=ExtResource("6_4u8dl")]
 modulate = Color(0.760784, 0.764706, 0.780392, 1)
 metadata/_edit_lock_ = true
@@ -613,5 +590,3 @@ focus = NodePath("../Player")
 [editable path="tile4-9/GroundR"]
 [editable path="tile4-6/GroundL"]
 [editable path="tile4-6/GroundR"]
-[editable path="tile4-7/GroundL"]
-[editable path="tile4-7/GroundR"]

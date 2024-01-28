@@ -16,11 +16,12 @@ modulate = Color(0.247059, 0.65098, 0.435294, 1)
 position = Vector2(4349, -308)
 scale = Vector2(-1, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_pyjxc")]
+[node name="Player" parent="." node_paths=PackedStringArray("feather") instance=ExtResource("1_pyjxc")]
 position = Vector2(1900, -51)
 player_modulate = Color(0.211765, 0.34902, 0.529412, 1)
 move_speed = null
 friction = null
+feather = NodePath("")
 feather_impact = null
 
 [node name="tile3" type="StaticBody2D" parent="."]
