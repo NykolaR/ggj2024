@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwpnilkpee3cc"]
+[gd_scene load_steps=8 format=3 uid="uid://dwpnilkpee3cc"]
 
 [ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="1_x8qs7"]
 [ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="2_wo33t"]
 [ext_resource type="PackedScene" uid="uid://b70f52minqjpu" path="res://scenes/vfx/wiggle.tscn" id="3_tnew1"]
+[ext_resource type="PackedScene" uid="uid://j4fbq55rn8u6" path="res://scenes/vfx/grain.tscn" id="4_cqopf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0thpm"]
 size = Vector2(616, 29)
@@ -43,3 +44,5 @@ shape = SubResource("RectangleShape2D_el6pb")
 debug_color = Color(0.611765, 0.611765, 0.611765, 0.419608)
 
 [node name="Wiggle" parent="." instance=ExtResource("3_tnew1")]
+
+[node name="Grain" parent="." instance=ExtResource("4_cqopf")]
