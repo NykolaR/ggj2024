@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const MAX_STAMINA: float = 3.99
-const STAMINA_RATE: float = 1.0
+const STAMINA_RATE: float = 3.0
 const MAX_SPEED: float = 400.0
 
 @export var move_speed: float = 200.0
@@ -29,8 +29,12 @@ const MAX_SPEED: float = 400.0
 
 @onready var visual: CreatureVisual = $CreatureVisual as CreatureVisual
 
+@onready var eaten_area: Area2D = $Eaten as Area2D
+
 @export var feather: Area2D
-@export var feather_impact: float = 1.0
+@export var feather_impact: Vector2 = Vector2(5000, 500)
+
+var eaten: bool = false
 
 var n_vel: Vector2 = Vector2()
 var f_vel: Vector2 = Vector2()
@@ -41,27 +45,33 @@ var falling: bool = false
 var keyboard_input: bool = true
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_released("jump") and not falling:
+	if not eaten and Input.is_action_just_released("jump") and not falling:
 		falling = true
 	velocity.y += get_gravity() * delta
-	velocity.x = get_input_velocity() * move_speed
-	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		falling = false
-		jump()
-	
-	feather_func_one()
-	velocity += f_vel
-	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
-	move_and_slide()
-	if is_on_floor():
-		velocity.x = move_toward(velocity.x, 0.0, friction)
-		var ostam: float = stamina
-		stamina = MAX_STAMINA
-		if floor(ostam) < floor(stamina):
-			pass # stamina fill v effect
-	
+	if not eaten:
+		velocity.x = get_input_velocity() * move_speed
+		
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			falling = false
+			jump()
+		
+		feather_func_one()
+		velocity += f_vel
+		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
+		move_and_slide()
+		velocity.x -= f_vel.x
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0.0, friction)
+			var ostam: float = stamina
+			stamina = MAX_STAMINA
+			if floor(ostam) < floor(stamina):
+				pass # stamina fill v effect
+		
 	visual.set_velocity(velocity, is_on_floor())
+	
+	if velocity.y > 0:
+		if eaten_area.get_overlapping_areas().size() > 0:
+			eaten = true
 
 
 func _input(event: InputEvent) -> void:
@@ -82,7 +92,10 @@ func feather_func_one() -> void:
 	var vel: float = minf(abs(r1.angle_to(r2)), 0.025)
 	var pos: Vector2 = lerp(r1, r2, 0.5)
 	if stamina > 0.0:
-		f_vel -= vel * pos * feather_impact
+		f_vel -= vel * pos
+		if not is_on_floor():
+			f_vel.x *= feather_impact.x
+		f_vel.y *= feather_impact.y
 		stamina -= vel * STAMINA_RATE
 	# do feather effect
 	
@@ -105,7 +118,7 @@ func feather_func_one() -> void:
 	
 	if stamina > 0:
 		for body in feather.get_overlapping_areas():
-			var ppp: Node = body.get_parent().get_parent().get_parent()
+			var ppp: Node = body.get_parent().get_parent().get_parent().get_parent()
 			if ppp and ppp.has_method("tickle_increase"):
 				ppp.tickle_increase(vel)
 

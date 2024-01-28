@@ -23,6 +23,7 @@ scale = Vector2(1, -1)
 
 [node name="Player" parent="." instance=ExtResource("1_x8qs7")]
 position = Vector2(598, 310)
+feather_impact = Vector2(10000, 500)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(600, 300)
@@ -46,3 +47,4 @@ debug_color = Color(0.611765, 0.611765, 0.611765, 0.419608)
 [node name="Wiggle" parent="." instance=ExtResource("3_tnew1")]
 
 [node name="Grain" parent="." instance=ExtResource("4_cqopf")]
+visible = false
