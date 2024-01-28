@@ -33,3 +33,5 @@ func _on_creature_visual_mouth_opened() -> void:
 
 func _on_creature_visual_mouth_closed() -> void:
 	$CreatureVisual/Node2D/Body/Mouth.monitorable = false
+	tickled = false
+	tickle_tension = 0

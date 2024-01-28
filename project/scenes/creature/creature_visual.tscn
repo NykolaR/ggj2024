@@ -209,7 +209,7 @@ tracks/4/keys = {
 "args": [&"mouth_opened"],
 "method": &"emit_signal"
 }, {
-"args": [&"mouth_opened"],
+"args": [&"mouth_closed"],
 "method": &"emit_signal"
 }]
 }

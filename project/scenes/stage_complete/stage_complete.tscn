@@ -9,6 +9,21 @@ font_size = 70
 outline_size = 18
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_pvcfw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Complete:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0785398]
+}
+
 [sub_resource type="Animation" id="Animation_1dnl4"]
 resource_name = "looper"
 loop_mode = 1
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1.6245, 0.466516),
 "update": 0,
 "values": [-0.0785398, 0.0785398]
-}
-
-[sub_resource type="Animation" id="Animation_pvcfw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Complete:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.0785398]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r8ybw"]
