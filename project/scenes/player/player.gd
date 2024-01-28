@@ -4,6 +4,8 @@ const MAX_STAMINA: float = 3.99
 const STAMINA_RATE: float = 3.0
 const MAX_SPEED: float = 400.0
 
+@export var fcurve: Curve
+
 @export var player_modulate: Color = Color.WHITE
 
 @export var move_speed: float = 200.0
@@ -34,6 +36,8 @@ const MAX_SPEED: float = 400.0
 @onready var eaten_area: Area2D = $Eaten as Area2D
 
 @onready var jump_sound: AudioStreamPlayer2D = $Jump as AudioStreamPlayer2D
+
+@onready var feather_sound: AudioStreamPlayer2D = $Feather/FNoise as AudioStreamPlayer2D
 
 @export var feather: Area2D
 @export var feather_impact: Vector2 = Vector2(10000, 500)
@@ -113,6 +117,8 @@ func feather_func_one() -> void:
 		feather.look_at(feather.global_position + Input.get_vector("feather_left", "feather_right", "feather_up", "feather_down"))
 	var r2: Vector2 = feather.global_transform.x
 	var vel: float = minf(abs(r1.angle_to(r2)), 0.025)
+	
+	#feather_sound.volume_db = fcurve.sample_baked(remap(vel, 0.0, 0.025, 0.0, 1.0)) * -80.0
 	var pos: Vector2 = lerp(r1, r2, 0.5)
 	if stamina > 0.0:
 		f_vel -= vel * pos
