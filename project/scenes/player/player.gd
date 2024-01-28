@@ -4,6 +4,8 @@ const MAX_STAMINA: float = 3.99
 const STAMINA_RATE: float = 3.0
 const MAX_SPEED: float = 400.0
 
+@export var player_modulate: Color = Color.WHITE
+
 @export var move_speed: float = 200.0
 
 @export var jump_height: float
@@ -32,9 +34,7 @@ const MAX_SPEED: float = 400.0
 @onready var eaten_area: Area2D = $Eaten as Area2D
 
 @export var feather: Area2D
-@export var feather_impact: Vector2 = Vector2(5000, 500)
-
-signal player_died
+@export var feather_impact: Vector2 = Vector2(10000, 500)
 
 var eaten: bool = false
 
@@ -45,6 +45,13 @@ var stamina: float = MAX_STAMINA
 var falling: bool = false
 
 var keyboard_input: bool = true
+
+signal player_died
+signal player_eaten
+
+func _ready() -> void:
+	$CreatureVisual.modulate = player_modulate
+
 
 func _physics_process(delta: float) -> void:
 	if not eaten and Input.is_action_just_released("jump") and not falling:
@@ -71,9 +78,14 @@ func _physics_process(delta: float) -> void:
 		
 	visual.set_velocity(velocity, is_on_floor())
 	
-	if velocity.y > 0:
-		if eaten_area.get_overlapping_areas().size() > 0:
+	if not eaten and velocity.y > 0:
+		var eatens: Array = eaten_area.get_overlapping_areas()
+		if eatens.size() > 0:
 			eaten = true
+			player_eaten.emit()
+			var body: CreatureVisual = eatens.front().get_parent().get_parent().get_parent().get_parent()
+			if is_instance_valid(body) and body.has_method("mouth_mask"):
+				body.mouth_mask()
 
 
 func _input(event: InputEvent) -> void:

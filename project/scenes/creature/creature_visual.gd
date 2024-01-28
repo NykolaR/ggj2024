@@ -43,3 +43,7 @@ func set_velocity(velocity: Vector2, grounded: bool) -> void:
 
 func laugh() -> void:
 	animation.play("laugh")
+
+
+func mouth_mask() -> void:
+	$Node2D/Body/Node2D/MouthMask.show()

@@ -47,7 +47,6 @@ jump_height = 100.0
 jump_time_to_peak = 0.5
 jump_time_to_descent = 0.4
 feather = NodePath("Feather")
-feather_impact = Vector2(10000, 500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yacov")
@@ -71,28 +70,28 @@ position = Vector2(68, 0)
 shape = SubResource("RectangleShape2D_7cyon")
 
 [node name="F2" type="Sprite2D" parent="Feather"]
-modulate = Color(1, 1, 1, 0.823529)
+modulate = Color(0.6, 1, 0.639216, 0.823529)
 position = Vector2(68, 0)
 rotation = 1.5708
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("3_gkvte")
 
 [node name="F3" type="Sprite2D" parent="Feather"]
-modulate = Color(1, 1, 1, 0.823529)
+modulate = Color(1, 0.976471, 0.709804, 0.823529)
 position = Vector2(68, 0)
 rotation = 1.5708
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("4_bb1gg")
 
 [node name="F4" type="Sprite2D" parent="Feather"]
-modulate = Color(1, 1, 1, 0.823529)
+modulate = Color(1, 0.741176, 0.541176, 0.823529)
 position = Vector2(68, 0)
 rotation = 1.5708
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("5_jaysi")
 
 [node name="F5" type="Sprite2D" parent="Feather"]
-modulate = Color(1, 1, 1, 0.823529)
+modulate = Color(1, 0.501961, 0.501961, 0.823529)
 position = Vector2(68, 0)
 rotation = 1.5708
 scale = Vector2(0.08, 0.08)
