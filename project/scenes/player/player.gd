@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 const MAX_STAMINA: float = 3.99
-const STAMINA_RATE: float = 0.15
-const MAX_SPEED: float = 200.0
+const STAMINA_RATE: float = 1.0
+const MAX_SPEED: float = 400.0
 
-@export var move_speed: float = 100.0
+@export var move_speed: float = 200.0
 
 @export var jump_height: float
 @export var jump_time_to_peak: float
@@ -32,6 +32,9 @@ const MAX_SPEED: float = 200.0
 @export var feather: Area2D
 @export var feather_impact: float = 1.0
 
+var n_vel: Vector2 = Vector2()
+var f_vel: Vector2 = Vector2()
+
 var stamina: float = MAX_STAMINA
 var falling: bool = false
 
@@ -41,13 +44,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("jump") and not falling:
 		falling = true
 	velocity.y += get_gravity() * delta
-	velocity.x += get_input_velocity() * move_speed
+	velocity.x = get_input_velocity() * move_speed
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		falling = false
 		jump()
 	
 	feather_func_one()
+	velocity += f_vel
+	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	move_and_slide()
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, 0.0, friction)
@@ -55,7 +60,7 @@ func _physics_process(delta: float) -> void:
 		stamina = MAX_STAMINA
 		if floor(ostam) < floor(stamina):
 			pass # stamina fill v effect
-	velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
+	
 	visual.set_velocity(velocity, is_on_floor())
 
 
@@ -67,16 +72,17 @@ func _input(event: InputEvent) -> void:
 
 
 func feather_func_one() -> void:
+	f_vel = Vector2.ZERO
 	var r1: Vector2 = feather.global_transform.x
 	if keyboard_input:
 		feather.look_at(get_global_mouse_position())
 	else:
 		feather.look_at(feather.global_position + Input.get_vector("feather_left", "feather_right", "feather_up", "feather_down"))
 	var r2: Vector2 = feather.global_transform.x
-	var vel: float = abs(r1.angle_to(r2))
+	var vel: float = minf(abs(r1.angle_to(r2)), 0.025)
 	var pos: Vector2 = lerp(r1, r2, 0.5)
 	if stamina > 0.0:
-		velocity -= vel * pos * feather_impact
+		f_vel -= vel * pos * feather_impact
 		stamina -= vel * STAMINA_RATE
 	# do feather effect
 	

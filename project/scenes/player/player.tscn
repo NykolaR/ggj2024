@@ -41,12 +41,11 @@ turbulence_enabled = true
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("feather")]
 collision_layer = 2
 script = ExtResource("1_eirax")
-move_speed = 400.0
 jump_height = 100.0
 jump_time_to_peak = 0.5
 jump_time_to_descent = 0.4
 feather = NodePath("Feather")
-feather_impact = 50.0
+feather_impact = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yacov")
