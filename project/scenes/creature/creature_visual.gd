@@ -6,6 +6,9 @@ extends Node2D
 @onready var air_legs: AnimatedSprite2D = $Node2D/Body/Feet2 as AnimatedSprite2D
 @onready var animation: AnimationPlayer = $AnimationPlayer as AnimationPlayer
 
+signal mouth_opened
+signal mouth_closed
+
 func set_velocity(velocity: Vector2, grounded: bool) -> void:
 	if abs(velocity.x) > 1:
 		if velocity.x < -10:
@@ -36,3 +39,7 @@ func set_velocity(velocity: Vector2, grounded: bool) -> void:
 			air_legs.frame = 1
 		else:
 			air_legs.frame = 2
+
+
+func laugh() -> void:
+	animation.play("laugh")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cu8434c7ica0o"]
+[gd_scene load_steps=20 format=3 uid="uid://cu8434c7ica0o"]
 
 [ext_resource type="Texture2D" uid="uid://bbj7nb0krcdlt" path="res://assets/textures/body.png" id="1_mnc4t"]
 [ext_resource type="Script" path="res://scenes/creature/creature_visual.gd" id="1_v76tm"]
@@ -44,10 +44,133 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 40)]
 }
 
+[sub_resource type="Animation" id="Animation_u8wr8"]
+resource_name = "laugh"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Body/Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0.5), Vector2(1, 1.35), Vector2(1, 0.5), Vector2(1, 1.35), Vector2(1, 0.5), Vector2(1, 1.35), Vector2(1, 0.5), Vector2(1, 1.35), Vector2(1, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Body/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0872665, -0.0174533, 0.0872665, -0.0174533, 0.0872665, -0.0174533, 0.0872665, -0.0174533, 0.0872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Body/Node2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -232.285), Vector2(0, -222.445), Vector2(0, -232.285), Vector2(0, -222.445), Vector2(0, -232.285), Vector2(0, -222.445), Vector2(0, -232.285), Vector2(0, -222.445), Vector2(0, -232.285)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/Body/Node2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_361v0"]
+resource_name = "mouth_close"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Body/Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1.35), Vector2(1, 1.35), Vector2(1, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Body/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.0174533, -0.0174533, 0.0872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Body/Node2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -222.445), Vector2(0, -222.445), Vector2(0, -232.285)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/Body/Node2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 19.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"mouth_opened"],
+"method": &"emit_signal"
+}, {
+"args": [&"mouth_opened"],
+"method": &"emit_signal"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jquie"]
 _data = {
 "RESET": SubResource("Animation_riag4"),
-"bob": SubResource("Animation_oob1w")
+"bob": SubResource("Animation_oob1w"),
+"laugh": SubResource("Animation_u8wr8"),
+"mouth_close": SubResource("Animation_361v0")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c8nub"]
@@ -101,6 +224,7 @@ libraries = {
 "": SubResource("AnimationLibrary_jquie")
 }
 speed_scale = 4.0
+next/laugh = &"mouth_close"
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -108,14 +232,20 @@ speed_scale = 4.0
 self_modulate = Color(0.541176, 0.729412, 0.890196, 1)
 texture = ExtResource("1_mnc4t")
 
-[node name="MouthVisual" type="Sprite2D" parent="Node2D/Body"]
-visible = false
-texture = ExtResource("2_yh07r")
-
 [node name="Feet2" type="AnimatedSprite2D" parent="Node2D/Body"]
 modulate = Color(0.329412, 0.396078, 0.568627, 1)
 position = Vector2(0, 206)
 sprite_frames = SubResource("SpriteFrames_c8nub")
+
+[node name="Node2D" type="Node2D" parent="Node2D/Body"]
+modulate = Color(0.541176, 0.729412, 0.890196, 1)
+position = Vector2(0, -222.445)
+rotation = -0.0174533
+scale = Vector2(1, 1.35)
+
+[node name="MouthVisual" type="Sprite2D" parent="Node2D/Body/Node2D"]
+position = Vector2(0, 229.74)
+texture = ExtResource("2_yh07r")
 
 [node name="Feet" type="AnimatedSprite2D" parent="Node2D"]
 visible = false
