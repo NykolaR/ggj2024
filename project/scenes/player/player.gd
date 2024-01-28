@@ -29,7 +29,7 @@ const MAX_SPEED: float = 200.0
 
 @onready var visual: Node2D = $Node2D as Node2D
 
-@export var feather: Node2D
+@export var feather: Area2D
 @export var feather_impact: float = 1.0
 
 var stamina: float = MAX_STAMINA
@@ -95,6 +95,12 @@ func feather_func_one() -> void:
 		feathers[3].hide()
 	if stamina < 0:
 		feathers[4].hide()
+	
+	if stamina > 0:
+		for body in feather.get_overlapping_areas():
+			var ppp: Node = body.get_parent().get_parent().get_parent()
+			if ppp and ppp.has_method("tickle_increase"):
+				ppp.tickle_increase(vel)
 
 
 func get_gravity() -> float:

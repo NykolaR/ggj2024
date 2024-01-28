@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwpnilkpee3cc"]
+[gd_scene load_steps=7 format=3 uid="uid://dwpnilkpee3cc"]
 
 [ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="1_x8qs7"]
 [ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="2_wo33t"]
@@ -10,7 +10,15 @@ size = Vector2(616, 29)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx2nm"]
 size = Vector2(303, 41)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el6pb"]
+size = Vector2(523, 49)
+
 [node name="Debug" type="Node2D"]
+
+[node name="Creature" parent="." instance=ExtResource("2_wo33t")]
+position = Vector2(1490, 5)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
 [node name="Player" parent="." instance=ExtResource("1_x8qs7")]
 position = Vector2(598, 310)
@@ -29,7 +37,9 @@ position = Vector2(-361.5, 115.5)
 shape = SubResource("RectangleShape2D_rx2nm")
 debug_color = Color(0.611765, 0.611765, 0.611765, 0.419608)
 
-[node name="Creature" parent="." instance=ExtResource("2_wo33t")]
-position = Vector2(1490, 5)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(702.5, 86.5)
+shape = SubResource("RectangleShape2D_el6pb")
+debug_color = Color(0.611765, 0.611765, 0.611765, 0.419608)
 
 [node name="Wiggle" parent="." instance=ExtResource("3_tnew1")]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6e204v0wvp86"]
+
+[ext_resource type="Texture2D" uid="uid://cwks3y7x1w64a" path="res://assets/textures/ground-m-upper.png" id="1_nuw6l"]
+[ext_resource type="Texture2D" uid="uid://dlnkjmyiqdqo7" path="res://assets/textures/gound-m-lower.png" id="2_burlf"]
+
+[node name="GroundC" type="CollisionShape2D"]
+
+[node name="Upper" type="Sprite2D" parent="."]
+texture = ExtResource("1_nuw6l")
+
+[node name="Lower" type="Sprite2D" parent="."]
+texture = ExtResource("2_burlf")

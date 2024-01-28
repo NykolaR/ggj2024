@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dttpbwm6248db"]
+[gd_scene load_steps=18 format=3 uid="uid://dttpbwm6248db"]
 
 [ext_resource type="Script" path="res://scenes/creature/creature.gd" id="1_atw63"]
 [ext_resource type="Texture2D" uid="uid://bbj7nb0krcdlt" path="res://assets/textures/body.png" id="2_8d4mf"]
@@ -24,9 +24,70 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Body/Node2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Body/Node2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0872665]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/Body/Node2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -232.285)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/Body/Node2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node2D/Body/Mouth:monitorable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_oob1w"]
 resource_name = "bob"
+length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -35,16 +96,148 @@ tracks/0/path = NodePath("Node2D/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 40)]
 }
 
+[sub_resource type="Animation" id="Animation_vgixs"]
+resource_name = "laugh"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Body/Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0.5), Vector2(1, 1.35), Vector2(1, 0.5), Vector2(1, 1.35), Vector2(1, 0.5), Vector2(1, 1.35), Vector2(1, 0.5), Vector2(1, 1.35), Vector2(1, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Body/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0872665, -0.0174533, 0.0872665, -0.0174533, 0.0872665, -0.0174533, 0.0872665, -0.0174533, 0.0872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Body/Node2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -232.285), Vector2(0, -222.445), Vector2(0, -232.285), Vector2(0, -222.445), Vector2(0, -232.285), Vector2(0, -222.445), Vector2(0, -232.285), Vector2(0, -222.445), Vector2(0, -232.285)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/Body/Node2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8c0h1"]
+resource_name = "mouse_close"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Body/Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1.35), Vector2(1, 1.35), Vector2(1, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Body/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.0174533, -0.0174533, 0.0872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Body/Node2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -222.445), Vector2(0, -222.445), Vector2(0, -232.285)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/Body/Node2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/Body/Mouth:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 18.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(19.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"tickle_reset"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jquie"]
 _data = {
 "RESET": SubResource("Animation_riag4"),
-"bob": SubResource("Animation_oob1w")
+"bob": SubResource("Animation_oob1w"),
+"laugh": SubResource("Animation_vgixs"),
+"mouse_close": SubResource("Animation_8c0h1")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6p4s"]
@@ -86,8 +279,7 @@ script = ExtResource("1_atw63")
 libraries = {
 "": SubResource("AnimationLibrary_jquie")
 }
-autoplay = "bob"
-speed_scale = 4.0
+next/laugh = &"mouse_close"
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, 40)
@@ -102,6 +294,7 @@ collision_layer = 32
 collision_mask = 0
 input_pickable = false
 monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Body/Mouth"]
 visible = false
@@ -112,13 +305,20 @@ position = Vector2(0, -35.5)
 collision_layer = 8
 collision_mask = 0
 input_pickable = false
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Body/TickleTown"]
 position = Vector2(97.47, 224.265)
 shape = SubResource("CircleShape2D_4dmgy")
 
-[node name="MouthVisual" type="Sprite2D" parent="Node2D/Body"]
+[node name="Node2D" type="Node2D" parent="Node2D/Body"]
 visible = false
+position = Vector2(0, -232.285)
+rotation = 0.0872665
+scale = Vector2(1, 0.5)
+
+[node name="MouthVisual" type="Sprite2D" parent="Node2D/Body/Node2D"]
+position = Vector2(0, 229.74)
 texture = ExtResource("3_j4iho")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
