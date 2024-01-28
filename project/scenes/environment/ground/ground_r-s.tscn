@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6kjcg0b78k5b"]
+
+[ext_resource type="Texture2D" uid="uid://bsncvon4g2fgr" path="res://assets/textures/ground-r-upper.png" id="1_4xcf0"]
+[ext_resource type="Texture2D" uid="uid://dyudkusma5qgj" path="res://assets/textures/ground-r-lower.png" id="2_lx7y1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ishsv"]
+size = Vector2(1078, 978)
+
+[node name="GroundR" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_ishsv")
+
+[node name="Upper" type="Sprite2D" parent="."]
+modulate = Color(1, 0.866667, 0.203922, 1)
+texture = ExtResource("1_4xcf0")
+
+[node name="Lower" type="Sprite2D" parent="."]
+modulate = Color(0.670588, 0.321569, 0.211765, 1)
+texture = ExtResource("2_lx7y1")

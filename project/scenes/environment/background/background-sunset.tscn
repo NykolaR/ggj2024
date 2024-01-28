@@ -1,16 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgjvoywtvllph"]
+[gd_scene load_steps=8 format=3 uid="uid://csjpdo8fb7hxi"]
 
-[ext_resource type="Texture2D" uid="uid://ctauvqyqi0rpi" path="res://assets/textures/background-mountain.png" id="1_bx2a0"]
-[ext_resource type="Texture2D" uid="uid://dnoo8r87nr37r" path="res://assets/textures/background-clouds.png" id="2_0m5vv"]
-[ext_resource type="Texture2D" uid="uid://mj1ox1uqsodv" path="res://assets/textures/background-grass.png" id="3_i7yyg"]
-[ext_resource type="Texture2D" uid="uid://cxym0pupxejbq" path="res://assets/textures/background-little-trees.png" id="4_pdpvw"]
-[ext_resource type="Texture2D" uid="uid://dy4srmf4lset7" path="res://assets/textures/background-trees.png" id="5_r7yuw"]
+[ext_resource type="Texture2D" uid="uid://ctauvqyqi0rpi" path="res://assets/textures/background-mountain.png" id="1_74cud"]
+[ext_resource type="Texture2D" uid="uid://dnoo8r87nr37r" path="res://assets/textures/background-clouds.png" id="2_1nyhk"]
+[ext_resource type="Texture2D" uid="uid://mj1ox1uqsodv" path="res://assets/textures/background-grass.png" id="3_wsfei"]
+[ext_resource type="Texture2D" uid="uid://cxym0pupxejbq" path="res://assets/textures/background-little-trees.png" id="4_qx5m4"]
+[ext_resource type="Texture2D" uid="uid://dy4srmf4lset7" path="res://assets/textures/background-trees.png" id="5_v5beu"]
 
 [sub_resource type="Gradient" id="Gradient_l8ahb"]
 offsets = PackedFloat32Array(0.679245, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_skv0n"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5vl5d"]
 gradient = SubResource("Gradient_l8ahb")
 width = 1
 height = 1
@@ -18,7 +18,7 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0.1)
 metadata/_snap_enabled = true
 
-[node name="background-sunset" type="Node2D"]
+[node name="Background-temp" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -32,7 +32,7 @@ offset_top = -100.0
 offset_right = 1357.0
 offset_bottom = 745.0
 scale = Vector2(1.90728, 0.847043)
-texture = SubResource("GradientTexture2D_skv0n")
+texture = SubResource("GradientTexture2D_5vl5d")
 
 [node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
 modulate = Color(1, 0.866667, 0.203922, 1)
@@ -41,13 +41,13 @@ offset_top = 620.0
 offset_right = 1357.0
 offset_bottom = 1465.0
 scale = Vector2(1.90728, 0.847043)
-texture = SubResource("GradientTexture2D_skv0n")
+texture = SubResource("GradientTexture2D_5vl5d")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 modulate = Color(1, 0, 0.301961, 1)
-position = Vector2(51, -46)
+position = Vector2(-45, -46)
 scale = Vector2(0.640741, 0.640741)
-texture = ExtResource("1_bx2a0")
+texture = ExtResource("1_74cud")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -59,11 +59,11 @@ motion_mirroring = Vector2(1500, 0)
 modulate = Color(1, 0.945098, 0.909804, 1)
 position = Vector2(1, 0)
 scale = Vector2(0.488889, 0.488889)
-texture = ExtResource("2_0m5vv")
+texture = ExtResource("2_1nyhk")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1, 0)
+position = Vector2(-111, 0)
 motion_scale = Vector2(0.1, 0)
 motion_mirroring = Vector2(1200, 0)
 
@@ -71,14 +71,14 @@ motion_mirroring = Vector2(1200, 0)
 modulate = Color(1, 0.866667, 0.203922, 1)
 position = Vector2(53, 82)
 scale = Vector2(0.498765, 0.524074)
-texture = ExtResource("3_i7yyg")
+texture = ExtResource("3_wsfei")
 centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 modulate = Color(0.670588, 0.321569, 0.211765, 1)
 position = Vector2(51, 134)
 scale = Vector2(0.458642, 0.475926)
-texture = ExtResource("4_pdpvw")
+texture = ExtResource("4_qx5m4")
 centered = false
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -90,12 +90,12 @@ motion_mirroring = Vector2(2500, 0)
 modulate = Color(0.372549, 0.341176, 0.309804, 1)
 position = Vector2(51, 217)
 scale = Vector2(0.458642, 0.475926)
-texture = ExtResource("5_r7yuw")
+texture = ExtResource("5_v5beu")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
 modulate = Color(0.580392, 0.129412, 0.415686, 1)
 position = Vector2(689, 234)
 scale = Vector2(0.458642, 0.475926)
-texture = ExtResource("5_r7yuw")
+texture = ExtResource("5_v5beu")
 centered = false

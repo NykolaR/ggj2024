@@ -45,7 +45,7 @@ texture = SubResource("GradientTexture2D_skv0n")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 modulate = Color(0, 0.2, 1, 1)
-position = Vector2(59, -52)
+position = Vector2(-25, -52)
 scale = Vector2(0.640741, 0.640741)
 texture = ExtResource("1_t68rp")
 centered = false
@@ -63,7 +63,7 @@ texture = ExtResource("2_t06qq")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1, 0)
+position = Vector2(-93, 0)
 motion_scale = Vector2(0.1, 0)
 motion_mirroring = Vector2(1200, 0)
 

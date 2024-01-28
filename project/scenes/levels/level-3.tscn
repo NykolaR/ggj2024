@@ -1,198 +1,304 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq7nnsdyy7m3q"]
+[gd_scene load_steps=8 format=3 uid="uid://x1ngg2qqthl3"]
 
-[ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="1_j5xf3"]
-[ext_resource type="PackedScene" uid="uid://c6e204v0wvp86" path="res://scenes/environment/ground/ground_c.tscn" id="2_4mw3t"]
-[ext_resource type="PackedScene" uid="uid://idvwydji7wq3" path="res://scenes/environment/ground/ground_l.tscn" id="3_wd62q"]
-[ext_resource type="PackedScene" uid="uid://bi5qi4l2goyxc" path="res://scenes/environment/ground/ground_r.tscn" id="4_r0y7s"]
-[ext_resource type="PackedScene" uid="uid://dssdkn314rse6" path="res://scenes/environment/background/background-day.tscn" id="5_mhdfi"]
-[ext_resource type="PackedScene" uid="uid://b70f52minqjpu" path="res://scenes/vfx/wiggle.tscn" id="6_co3u4"]
+[ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="1_7nebr"]
+[ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="2_6132k"]
+[ext_resource type="PackedScene" uid="uid://c6e204v0wvp86" path="res://scenes/environment/ground/ground_c.tscn" id="3_memf7"]
+[ext_resource type="PackedScene" uid="uid://idvwydji7wq3" path="res://scenes/environment/ground/ground_l.tscn" id="4_a1eol"]
+[ext_resource type="PackedScene" uid="uid://bi5qi4l2goyxc" path="res://scenes/environment/ground/ground_r.tscn" id="5_ojqom"]
+[ext_resource type="PackedScene" uid="uid://bgjvoywtvllph" path="res://scenes/environment/background/background-night.tscn" id="7_wq05d"]
+[ext_resource type="PackedScene" uid="uid://df8ppdv2bdypg" path="res://scenes/camera/game_cam.tscn" id="8_al427"]
 
-[node name="Level-1" type="Node2D"]
+[node name="Level-3" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_j5xf3")]
-position = Vector2(684, 276)
-feather_impact = Vector2(10000, 500)
+[node name="Creature" parent="." instance=ExtResource("1_7nebr")]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+position = Vector2(2984, -232)
+scale = Vector2(-1, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_6132k")]
+position = Vector2(535, 25)
+player_modulate = Color(0.247059, 0.65098, 0.435294, 1)
 
 [node name="tile3" type="StaticBody2D" parent="."]
-position = Vector2(672, 460)
+position = Vector2(523, 209)
 scale = Vector2(0.0799992, 0.0799992)
 metadata/_edit_group_ = true
 
-[node name="GroundC" parent="tile3" instance=ExtResource("2_4mw3t")]
+[node name="GroundC" parent="tile3" instance=ExtResource("3_memf7")]
 position = Vector2(53, -30)
 
-[node name="GroundL" parent="tile3" instance=ExtResource("3_wd62q")]
+[node name="Upper" parent="tile3/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile3/GroundC" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundL" parent="tile3" instance=ExtResource("4_a1eol")]
 position = Vector2(-1025.01, -25.0003)
 
-[node name="GroundR" parent="tile3" instance=ExtResource("4_r0y7s")]
+[node name="Upper" parent="tile3/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile3/GroundL" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundR" parent="tile3" instance=ExtResource("5_ojqom")]
 position = Vector2(1131, -50)
+
+[node name="Upper" parent="tile3/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile3/GroundR" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
 
 [node name="tile5" type="StaticBody2D" parent="."]
-position = Vector2(1616, 434)
+position = Vector2(2543, -293)
 scale = Vector2(0.0799992, 0.0799992)
 metadata/_edit_group_ = true
 
-[node name="GroundC" parent="tile5" instance=ExtResource("2_4mw3t")]
+[node name="GroundC" parent="tile5" instance=ExtResource("3_memf7")]
 position = Vector2(53, -30)
 
-[node name="GroundL" parent="tile5" instance=ExtResource("3_wd62q")]
+[node name="Upper" parent="tile5/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile5/GroundC" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundL" parent="tile5" instance=ExtResource("4_a1eol")]
 position = Vector2(-1025.01, -25.0003)
 
-[node name="GroundR" parent="tile5" instance=ExtResource("4_r0y7s")]
+[node name="Upper" parent="tile5/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile5/GroundL" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundR" parent="tile5" instance=ExtResource("5_ojqom")]
 position = Vector2(1131, -50)
 
-[node name="tile6" type="StaticBody2D" parent="."]
-position = Vector2(3163, 407)
-scale = Vector2(0.0799992, 0.0799992)
-metadata/_edit_group_ = true
+[node name="Upper" parent="tile5/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
 
-[node name="GroundC" parent="tile6" instance=ExtResource("2_4mw3t")]
-position = Vector2(53, -30)
-
-[node name="GroundL" parent="tile6" instance=ExtResource("3_wd62q")]
-position = Vector2(-1025.01, -25.0003)
-
-[node name="GroundR" parent="tile6" instance=ExtResource("4_r0y7s")]
-position = Vector2(1131, -50)
+[node name="Lower" parent="tile5/GroundR" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
 
 [node name="tile4" type="StaticBody2D" parent="."]
-position = Vector2(984, 558)
+position = Vector2(835, 307)
 scale = Vector2(0.0799992, 0.0799992)
 metadata/_edit_group_ = true
 
-[node name="GroundC" parent="tile4" instance=ExtResource("2_4mw3t")]
+[node name="GroundC" parent="tile4" instance=ExtResource("3_memf7")]
 position = Vector2(53, -30)
 
-[node name="GroundC2" parent="tile4" instance=ExtResource("2_4mw3t")]
+[node name="Upper" parent="tile4/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundC" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundC2" parent="tile4" instance=ExtResource("3_memf7")]
 position = Vector2(1137.51, -30)
 
-[node name="GroundC3" parent="tile4" instance=ExtResource("2_4mw3t")]
+[node name="Upper" parent="tile4/GroundC2" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundC2" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundC3" parent="tile4" instance=ExtResource("3_memf7")]
 position = Vector2(2162.52, -30)
 
-[node name="GroundC4" parent="tile4" instance=ExtResource("2_4mw3t")]
+[node name="Upper" parent="tile4/GroundC3" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundC3" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundC4" parent="tile4" instance=ExtResource("3_memf7")]
 position = Vector2(3225.03, -24.9996)
 
-[node name="GroundL" parent="tile4" instance=ExtResource("3_wd62q")]
+[node name="Upper" parent="tile4/GroundC4" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundC4" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundL" parent="tile4" instance=ExtResource("4_a1eol")]
 position = Vector2(-1025.01, -25.0003)
 
-[node name="GroundR" parent="tile4" instance=ExtResource("4_r0y7s")]
+[node name="Upper" parent="tile4/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundL" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundR" parent="tile4" instance=ExtResource("5_ojqom")]
 position = Vector2(4262.54, -12.4996)
+
+[node name="Upper" parent="tile4/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundR" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
 
 [node name="tile4-1" type="StaticBody2D" parent="."]
-position = Vector2(2018, 558)
+position = Vector2(1688, 300)
 scale = Vector2(0.0799992, 0.0799992)
 metadata/_edit_group_ = true
 
-[node name="GroundC" parent="tile4-1" instance=ExtResource("2_4mw3t")]
+[node name="GroundC" parent="tile4-1" instance=ExtResource("3_memf7")]
 position = Vector2(53, -30)
 
-[node name="GroundC2" parent="tile4-1" instance=ExtResource("2_4mw3t")]
+[node name="Upper" parent="tile4-1/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundC" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundC2" parent="tile4-1" instance=ExtResource("3_memf7")]
 position = Vector2(1137.51, -30)
 
-[node name="GroundC3" parent="tile4-1" instance=ExtResource("2_4mw3t")]
+[node name="Upper" parent="tile4-1/GroundC2" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundC2" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundC3" parent="tile4-1" instance=ExtResource("3_memf7")]
 position = Vector2(2162.52, -30)
 
-[node name="GroundC4" parent="tile4-1" instance=ExtResource("2_4mw3t")]
+[node name="Upper" parent="tile4-1/GroundC3" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundC3" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundC4" parent="tile4-1" instance=ExtResource("3_memf7")]
 position = Vector2(3225.03, -24.9996)
 
-[node name="GroundL" parent="tile4-1" instance=ExtResource("3_wd62q")]
+[node name="Upper" parent="tile4-1/GroundC4" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundC4" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundL" parent="tile4-1" instance=ExtResource("4_a1eol")]
 position = Vector2(-1025.01, -25.0003)
 
-[node name="GroundR" parent="tile4-1" instance=ExtResource("4_r0y7s")]
+[node name="Upper" parent="tile4-1/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundL" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundR" parent="tile4-1" instance=ExtResource("5_ojqom")]
 position = Vector2(4262.54, -12.4996)
 
-[node name="tile4-2" type="StaticBody2D" parent="."]
-position = Vector2(2606, 618)
-scale = Vector2(0.0799992, 0.0799992)
-metadata/_edit_group_ = true
+[node name="Upper" parent="tile4-1/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
 
-[node name="GroundC" parent="tile4-2" instance=ExtResource("2_4mw3t")]
-position = Vector2(53, -30)
-
-[node name="GroundC2" parent="tile4-2" instance=ExtResource("2_4mw3t")]
-position = Vector2(1137.51, -30)
-
-[node name="GroundC3" parent="tile4-2" instance=ExtResource("2_4mw3t")]
-position = Vector2(2162.52, -30)
-
-[node name="GroundC4" parent="tile4-2" instance=ExtResource("2_4mw3t")]
-position = Vector2(3225.03, -24.9996)
-
-[node name="GroundL" parent="tile4-2" instance=ExtResource("3_wd62q")]
-position = Vector2(-1025.01, -25.0003)
-
-[node name="GroundR" parent="tile4-2" instance=ExtResource("4_r0y7s")]
-position = Vector2(4262.54, -12.4996)
-
-[node name="tile4-3" type="StaticBody2D" parent="."]
-position = Vector2(4173, 645)
-scale = Vector2(0.0799992, 0.0799992)
-metadata/_edit_group_ = true
-
-[node name="GroundC" parent="tile4-3" instance=ExtResource("2_4mw3t")]
-position = Vector2(53, -30)
-
-[node name="GroundC2" parent="tile4-3" instance=ExtResource("2_4mw3t")]
-position = Vector2(1137.51, -30)
-
-[node name="GroundC3" parent="tile4-3" instance=ExtResource("2_4mw3t")]
-position = Vector2(2162.52, -30)
-
-[node name="GroundC4" parent="tile4-3" instance=ExtResource("2_4mw3t")]
-position = Vector2(3225.03, -24.9996)
-
-[node name="GroundL" parent="tile4-3" instance=ExtResource("3_wd62q")]
-position = Vector2(-1025.01, -25.0003)
-
-[node name="GroundR" parent="tile4-3" instance=ExtResource("4_r0y7s")]
-position = Vector2(4262.54, -12.4996)
-
-[node name="tile4-4" type="StaticBody2D" parent="."]
-position = Vector2(4913, 645)
-scale = Vector2(0.0799992, 0.0799992)
-metadata/_edit_group_ = true
-
-[node name="GroundC" parent="tile4-4" instance=ExtResource("2_4mw3t")]
-position = Vector2(53, -30)
-
-[node name="GroundC2" parent="tile4-4" instance=ExtResource("2_4mw3t")]
-position = Vector2(1137.51, -30)
-
-[node name="GroundC3" parent="tile4-4" instance=ExtResource("2_4mw3t")]
-position = Vector2(2162.52, -30)
-
-[node name="GroundC4" parent="tile4-4" instance=ExtResource("2_4mw3t")]
-position = Vector2(3225.03, -24.9996)
-
-[node name="GroundL" parent="tile4-4" instance=ExtResource("3_wd62q")]
-position = Vector2(-1025.01, -25.0003)
-
-[node name="GroundR" parent="tile4-4" instance=ExtResource("4_r0y7s")]
-position = Vector2(4262.54, -12.4996)
+[node name="Lower" parent="tile4-1/GroundR" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
 
 [node name="tile4-5" type="StaticBody2D" parent="."]
-position = Vector2(5929, 645)
+position = Vector2(2573, 166)
 scale = Vector2(0.0799992, 0.0799992)
 metadata/_edit_group_ = true
 
-[node name="GroundC" parent="tile4-5" instance=ExtResource("2_4mw3t")]
-position = Vector2(53, -30)
-
-[node name="GroundC2" parent="tile4-5" instance=ExtResource("2_4mw3t")]
-position = Vector2(1137.51, -30)
-
-[node name="GroundC3" parent="tile4-5" instance=ExtResource("2_4mw3t")]
-position = Vector2(2162.52, -30)
-
-[node name="GroundC4" parent="tile4-5" instance=ExtResource("2_4mw3t")]
-position = Vector2(3225.03, -24.9996)
-
-[node name="GroundL" parent="tile4-5" instance=ExtResource("3_wd62q")]
+[node name="GroundL" parent="tile4-5" instance=ExtResource("4_a1eol")]
 position = Vector2(-1025.01, -25.0003)
 
-[node name="GroundR" parent="tile4-5" instance=ExtResource("4_r0y7s")]
-position = Vector2(4262.54, -12.4996)
+[node name="Upper" parent="tile4-5/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
 
-[node name="Node2D" parent="." instance=ExtResource("5_mhdfi")]
+[node name="Lower" parent="tile4-5/GroundL" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
 
-[node name="Wiggle" parent="." instance=ExtResource("6_co3u4")]
+[node name="GroundR" parent="tile4-5" instance=ExtResource("5_ojqom")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-5/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-5/GroundR" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="tile4-8" type="StaticBody2D" parent="."]
+position = Vector2(2313, 7.00001)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundL" parent="tile4-8" instance=ExtResource("4_a1eol")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-8/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-8/GroundL" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundR" parent="tile4-8" instance=ExtResource("5_ojqom")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-8/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-8/GroundR" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="tile4-6" type="StaticBody2D" parent="."]
+position = Vector2(3158, 173)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundL" parent="tile4-6" instance=ExtResource("4_a1eol")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-6/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-6/GroundL" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="GroundR" parent="tile4-6" instance=ExtResource("5_ojqom")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-6/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-6/GroundR" index="1"]
+modulate = Color(0.580392, 0.129412, 0.415686, 1)
+
+[node name="background-night" parent="." instance=ExtResource("7_wq05d")]
+position = Vector2(1295.35, 114.634)
+metadata/_edit_lock_ = true
+
+[node name="GameCam" parent="." node_paths=PackedStringArray("focus") instance=ExtResource("8_al427")]
+position = Vector2(318, 76)
+focus = NodePath("../Player")
+
+[editable path="tile3/GroundC"]
+[editable path="tile3/GroundL"]
+[editable path="tile3/GroundR"]
+[editable path="tile5/GroundC"]
+[editable path="tile5/GroundL"]
+[editable path="tile5/GroundR"]
+[editable path="tile4/GroundC"]
+[editable path="tile4/GroundC2"]
+[editable path="tile4/GroundC3"]
+[editable path="tile4/GroundC4"]
+[editable path="tile4/GroundL"]
+[editable path="tile4/GroundR"]
+[editable path="tile4-1/GroundC"]
+[editable path="tile4-1/GroundC2"]
+[editable path="tile4-1/GroundC3"]
+[editable path="tile4-1/GroundC4"]
+[editable path="tile4-1/GroundL"]
+[editable path="tile4-1/GroundR"]
+[editable path="tile4-5/GroundL"]
+[editable path="tile4-5/GroundR"]
+[editable path="tile4-8/GroundL"]
+[editable path="tile4-8/GroundR"]
+[editable path="tile4-6/GroundL"]
+[editable path="tile4-6/GroundR"]

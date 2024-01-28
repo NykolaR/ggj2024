@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmrgb6s2732is"]
+[gd_scene load_steps=8 format=3 uid="uid://bmrgb6s2732is"]
 
 [ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="1_1uyl2"]
 [ext_resource type="PackedScene" uid="uid://c6e204v0wvp86" path="res://scenes/environment/ground/ground_c.tscn" id="2_bnwrw"]
 [ext_resource type="PackedScene" uid="uid://idvwydji7wq3" path="res://scenes/environment/ground/ground_l.tscn" id="3_ywkw8"]
 [ext_resource type="PackedScene" uid="uid://bi5qi4l2goyxc" path="res://scenes/environment/ground/ground_r.tscn" id="4_5o7yj"]
 [ext_resource type="PackedScene" uid="uid://dssdkn314rse6" path="res://scenes/environment/background/background-day.tscn" id="5_jwvgx"]
-[ext_resource type="PackedScene" uid="uid://b70f52minqjpu" path="res://scenes/vfx/wiggle.tscn" id="6_4cbsd"]
 [ext_resource type="PackedScene" uid="uid://df8ppdv2bdypg" path="res://scenes/camera/game_cam.tscn" id="7_yj4wb"]
 [ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="8_ww86a"]
 
@@ -13,12 +12,13 @@
 position = Vector2(-1453, 0)
 
 [node name="Creature" parent="." instance=ExtResource("8_ww86a")]
+modulate = Color(0.211765, 0.34902, 0.529412, 1)
 position = Vector2(4400, -50)
 scale = Vector2(-1, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_1uyl2")]
-modulate = Color(1, 0, 0.301961, 1)
 position = Vector2(1900, -51)
+player_modulate = Color(1, 0, 0.301961, 1)
 
 [node name="tile3" type="StaticBody2D" parent="."]
 position = Vector2(1888, 133)
@@ -163,8 +163,6 @@ position = Vector2(75.0015, -12.4996)
 
 [node name="Node2D" parent="." instance=ExtResource("5_jwvgx")]
 position = Vector2(1216, -327)
-
-[node name="Wiggle" parent="." instance=ExtResource("6_4cbsd")]
 
 [node name="GameCam" parent="." node_paths=PackedStringArray("focus") instance=ExtResource("7_yj4wb")]
 position = Vector2(1683, 0)
