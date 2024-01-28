@@ -1,0 +1,619 @@
+[gd_scene load_steps=8 format=3 uid="uid://1v3iseltfn4u"]
+
+[ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="1_nt118"]
+[ext_resource type="PackedScene" uid="uid://fgiu5hpshv74" path="res://scenes/player/player.tscn" id="2_vmrmj"]
+[ext_resource type="PackedScene" uid="uid://c6e204v0wvp86" path="res://scenes/environment/ground/ground_c.tscn" id="3_tluqq"]
+[ext_resource type="PackedScene" uid="uid://idvwydji7wq3" path="res://scenes/environment/ground/ground_l.tscn" id="4_54tbt"]
+[ext_resource type="PackedScene" uid="uid://bi5qi4l2goyxc" path="res://scenes/environment/ground/ground_r.tscn" id="5_q867o"]
+[ext_resource type="PackedScene" uid="uid://buqph6wtfse1t" path="res://scenes/environment/background/background-gb.tscn" id="6_4u8dl"]
+[ext_resource type="PackedScene" uid="uid://df8ppdv2bdypg" path="res://scenes/camera/game_cam.tscn" id="7_e1ofj"]
+
+[node name="Level-3" type="Node2D"]
+
+[node name="Creature" parent="." instance=ExtResource("1_nt118")]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+position = Vector2(4614, -173)
+scale = Vector2(-1, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_vmrmj")]
+position = Vector2(535, 25)
+feather = Object(Area2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":4,"collision_mask":8,"collision_priority":1.0,"input_pickable":true,"monitoring":true,"monitorable":false,"priority":0,"gravity_space_override":0,"gravity_point":false,"gravity_point_unit_distance":0.0,"gravity_point_center":Vector2(0, 1),"gravity_direction":Vector2(0, 1),"gravity":980.0,"linear_damp_space_override":0,"linear_damp":0.1,"angular_damp_space_override":0,"angular_damp":1.0,"audio_bus_override":false,"audio_bus_name":&"Master","script":null)
+
+player_modulate = Color(0.760784, 0.764706, 0.780392, 1)
+move_speed = null
+friction = null
+feather_impact = null
+
+[node name="tile3" type="StaticBody2D" parent="."]
+position = Vector2(523, 209)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile3" instance=ExtResource("3_tluqq")]
+position = Vector2(53, -30)
+
+[node name="Upper" parent="tile3/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile3/GroundC" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundL" parent="tile3" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile3/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile3/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile3" instance=ExtResource("5_q867o")]
+position = Vector2(1131, -50)
+
+[node name="Upper" parent="tile3/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile3/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile5" type="StaticBody2D" parent="."]
+position = Vector2(4173, 202)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile5" instance=ExtResource("3_tluqq")]
+position = Vector2(53, -30)
+
+[node name="Upper" parent="tile5/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile5/GroundC" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundL" parent="tile5" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile5/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile5/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile5" instance=ExtResource("5_q867o")]
+position = Vector2(1131, -50)
+
+[node name="Upper" parent="tile5/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile5/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4" type="StaticBody2D" parent="."]
+position = Vector2(1069, 190)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4" instance=ExtResource("3_tluqq")]
+position = Vector2(53, -30)
+
+[node name="Upper" parent="tile4/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundC" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC2" parent="tile4" instance=ExtResource("3_tluqq")]
+position = Vector2(1137.51, -30)
+
+[node name="Upper" parent="tile4/GroundC2" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundC2" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC3" parent="tile4" instance=ExtResource("3_tluqq")]
+position = Vector2(2162.52, -30)
+
+[node name="Upper" parent="tile4/GroundC3" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundC3" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC4" parent="tile4" instance=ExtResource("3_tluqq")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="Upper" parent="tile4/GroundC4" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundC4" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundL" parent="tile4" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4" instance=ExtResource("5_q867o")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="Upper" parent="tile4/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-1" type="StaticBody2D" parent="."]
+position = Vector2(1962, 214)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-1" instance=ExtResource("3_tluqq")]
+position = Vector2(53, -30)
+
+[node name="Upper" parent="tile4-1/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundC" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC2" parent="tile4-1" instance=ExtResource("3_tluqq")]
+position = Vector2(1137.51, -30)
+
+[node name="Upper" parent="tile4-1/GroundC2" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundC2" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC3" parent="tile4-1" instance=ExtResource("3_tluqq")]
+position = Vector2(2162.52, -30)
+
+[node name="Upper" parent="tile4-1/GroundC3" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundC3" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC4" parent="tile4-1" instance=ExtResource("3_tluqq")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="Upper" parent="tile4-1/GroundC4" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundC4" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundL" parent="tile4-1" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-1/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-1" instance=ExtResource("5_q867o")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="Upper" parent="tile4-1/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-1/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-2" type="StaticBody2D" parent="."]
+position = Vector2(2579, -261)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-2" instance=ExtResource("3_tluqq")]
+position = Vector2(53, -30)
+
+[node name="Upper" parent="tile4-2/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-2/GroundC" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC2" parent="tile4-2" instance=ExtResource("3_tluqq")]
+position = Vector2(1137.51, -30)
+
+[node name="Upper" parent="tile4-2/GroundC2" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-2/GroundC2" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC3" parent="tile4-2" instance=ExtResource("3_tluqq")]
+position = Vector2(2162.52, -30)
+
+[node name="Upper" parent="tile4-2/GroundC3" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-2/GroundC3" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC4" parent="tile4-2" instance=ExtResource("3_tluqq")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="Upper" parent="tile4-2/GroundC4" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-2/GroundC4" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundL" parent="tile4-2" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-2/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-2/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-2" instance=ExtResource("5_q867o")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="Upper" parent="tile4-2/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-2/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-3" type="StaticBody2D" parent="."]
+position = Vector2(2043, -285)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-3" instance=ExtResource("3_tluqq")]
+position = Vector2(53, -30)
+
+[node name="Upper" parent="tile4-3/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-3/GroundC" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC2" parent="tile4-3" instance=ExtResource("3_tluqq")]
+position = Vector2(1137.51, -30)
+
+[node name="Upper" parent="tile4-3/GroundC2" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-3/GroundC2" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC3" parent="tile4-3" instance=ExtResource("3_tluqq")]
+position = Vector2(2162.52, -30)
+
+[node name="Upper" parent="tile4-3/GroundC3" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-3/GroundC3" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC4" parent="tile4-3" instance=ExtResource("3_tluqq")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="Upper" parent="tile4-3/GroundC4" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-3/GroundC4" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundL" parent="tile4-3" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-3/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-3/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-3" instance=ExtResource("5_q867o")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="Upper" parent="tile4-3/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-3/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-12" type="StaticBody2D" parent="."]
+position = Vector2(3091, -285)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-12" instance=ExtResource("3_tluqq")]
+position = Vector2(53, -30)
+
+[node name="Upper" parent="tile4-12/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-12/GroundC" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC2" parent="tile4-12" instance=ExtResource("3_tluqq")]
+position = Vector2(1137.51, -30)
+
+[node name="Upper" parent="tile4-12/GroundC2" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-12/GroundC2" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC3" parent="tile4-12" instance=ExtResource("3_tluqq")]
+position = Vector2(2162.52, -30)
+
+[node name="Upper" parent="tile4-12/GroundC3" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-12/GroundC3" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC4" parent="tile4-12" instance=ExtResource("3_tluqq")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="Upper" parent="tile4-12/GroundC4" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-12/GroundC4" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundL" parent="tile4-12" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-12/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-12/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-12" instance=ExtResource("5_q867o")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="Upper" parent="tile4-12/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-12/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-13" type="StaticBody2D" parent="."]
+position = Vector2(3091, -285)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundC" parent="tile4-13" instance=ExtResource("3_tluqq")]
+position = Vector2(53, -30)
+
+[node name="Upper" parent="tile4-13/GroundC" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-13/GroundC" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC2" parent="tile4-13" instance=ExtResource("3_tluqq")]
+position = Vector2(1137.51, -30)
+
+[node name="Upper" parent="tile4-13/GroundC2" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-13/GroundC2" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC3" parent="tile4-13" instance=ExtResource("3_tluqq")]
+position = Vector2(2162.52, -30)
+
+[node name="Upper" parent="tile4-13/GroundC3" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-13/GroundC3" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundC4" parent="tile4-13" instance=ExtResource("3_tluqq")]
+position = Vector2(3225.03, -24.9996)
+
+[node name="Upper" parent="tile4-13/GroundC4" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-13/GroundC4" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundL" parent="tile4-13" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-13/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-13/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-13" instance=ExtResource("5_q867o")]
+position = Vector2(4262.54, -12.4996)
+
+[node name="Upper" parent="tile4-13/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-13/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-5" type="StaticBody2D" parent="."]
+position = Vector2(3736, 181)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundL" parent="tile4-5" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-5/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-5/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-5" instance=ExtResource("5_q867o")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-5/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-5/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-8" type="StaticBody2D" parent="."]
+position = Vector2(3161, 178)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundL" parent="tile4-8" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-8/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-8/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-8" instance=ExtResource("5_q867o")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-8/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-8/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-9" type="StaticBody2D" parent="."]
+position = Vector2(2748, -73)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundL" parent="tile4-9" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-9/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-9/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-9" instance=ExtResource("5_q867o")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-9/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-9/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-6" type="StaticBody2D" parent="."]
+position = Vector2(4045, -132)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundL" parent="tile4-6" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-6/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-6/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-6" instance=ExtResource("5_q867o")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-6/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-6/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="tile4-7" type="StaticBody2D" parent="."]
+position = Vector2(4253, -366)
+scale = Vector2(0.0799992, 0.0799992)
+metadata/_edit_group_ = true
+
+[node name="GroundL" parent="tile4-7" instance=ExtResource("4_54tbt")]
+position = Vector2(-1025.01, -25.0003)
+
+[node name="Upper" parent="tile4-7/GroundL" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-7/GroundL" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="GroundR" parent="tile4-7" instance=ExtResource("5_q867o")]
+position = Vector2(75.0015, -12.4996)
+
+[node name="Upper" parent="tile4-7/GroundR" index="0"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+
+[node name="Lower" parent="tile4-7/GroundR" index="1"]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="Background-temp" parent="." instance=ExtResource("6_4u8dl")]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+metadata/_edit_lock_ = true
+
+[node name="GameCam" parent="." node_paths=PackedStringArray("focus") instance=ExtResource("7_e1ofj")]
+position = Vector2(318, 76)
+focus = NodePath("../Player")
+
+[editable path="tile3/GroundC"]
+[editable path="tile3/GroundL"]
+[editable path="tile3/GroundR"]
+[editable path="tile5/GroundC"]
+[editable path="tile5/GroundL"]
+[editable path="tile5/GroundR"]
+[editable path="tile4/GroundC"]
+[editable path="tile4/GroundC2"]
+[editable path="tile4/GroundC3"]
+[editable path="tile4/GroundC4"]
+[editable path="tile4/GroundL"]
+[editable path="tile4/GroundR"]
+[editable path="tile4-1/GroundC"]
+[editable path="tile4-1/GroundC2"]
+[editable path="tile4-1/GroundC3"]
+[editable path="tile4-1/GroundC4"]
+[editable path="tile4-1/GroundL"]
+[editable path="tile4-1/GroundR"]
+[editable path="tile4-2/GroundC"]
+[editable path="tile4-2/GroundC2"]
+[editable path="tile4-2/GroundC3"]
+[editable path="tile4-2/GroundC4"]
+[editable path="tile4-2/GroundL"]
+[editable path="tile4-2/GroundR"]
+[editable path="tile4-3/GroundC"]
+[editable path="tile4-3/GroundC2"]
+[editable path="tile4-3/GroundC3"]
+[editable path="tile4-3/GroundC4"]
+[editable path="tile4-3/GroundL"]
+[editable path="tile4-3/GroundR"]
+[editable path="tile4-12/GroundC"]
+[editable path="tile4-12/GroundC2"]
+[editable path="tile4-12/GroundC3"]
+[editable path="tile4-12/GroundC4"]
+[editable path="tile4-12/GroundL"]
+[editable path="tile4-12/GroundR"]
+[editable path="tile4-13/GroundC"]
+[editable path="tile4-13/GroundC2"]
+[editable path="tile4-13/GroundC3"]
+[editable path="tile4-13/GroundC4"]
+[editable path="tile4-13/GroundL"]
+[editable path="tile4-13/GroundR"]
+[editable path="tile4-5/GroundL"]
+[editable path="tile4-5/GroundR"]
+[editable path="tile4-8/GroundL"]
+[editable path="tile4-8/GroundR"]
+[editable path="tile4-9/GroundL"]
+[editable path="tile4-9/GroundR"]
+[editable path="tile4-6/GroundL"]
+[editable path="tile4-6/GroundR"]
+[editable path="tile4-7/GroundL"]
+[editable path="tile4-7/GroundR"]

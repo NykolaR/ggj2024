@@ -19,6 +19,9 @@ scale = Vector2(-1, 1)
 [node name="Player" parent="." instance=ExtResource("1_pyjxc")]
 position = Vector2(1900, -51)
 player_modulate = Color(0.211765, 0.34902, 0.529412, 1)
+move_speed = null
+friction = null
+feather_impact = null
 
 [node name="tile3" type="StaticBody2D" parent="."]
 position = Vector2(1888, 133)

@@ -18,6 +18,9 @@ scale = Vector2(-1, 1)
 [node name="Player" parent="." instance=ExtResource("2_6132k")]
 position = Vector2(535, 25)
 player_modulate = Color(0.247059, 0.65098, 0.435294, 1)
+move_speed = null
+friction = null
+feather_impact = null
 
 [node name="tile3" type="StaticBody2D" parent="."]
 position = Vector2(523, 209)
