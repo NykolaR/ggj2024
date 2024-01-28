@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://1t8q1wa2oj8m"]
+[gd_scene load_steps=10 format=3 uid="uid://1t8q1wa2oj8m"]
 
 [ext_resource type="PackedScene" uid="uid://dssdkn314rse6" path="res://scenes/environment/background/background-day.tscn" id="1_iidjq"]
 [ext_resource type="Script" path="res://scenes/levels/title.gd" id="1_jhax3"]
 [ext_resource type="PackedScene" uid="uid://dttpbwm6248db" path="res://scenes/creature/creature.tscn" id="2_ogd1g"]
 [ext_resource type="FontFile" uid="uid://hrcl4iuplyg8" path="res://assets/fonts/Gaegu-Bold.ttf" id="3_ptx5m"]
+[ext_resource type="AudioStream" uid="uid://dgcj2p8xg53lu" path="res://assets/audio/awful_jingle.wav" id="5_8rbfg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8iiyf"]
 font = ExtResource("3_ptx5m")
@@ -73,3 +74,7 @@ libraries = {
 "": SubResource("AnimationLibrary_186ul")
 }
 autoplay = "boing"
+
+[node name="Jingle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8rbfg")
+autoplay = true
